@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | SuperMarioBros</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content="landscape"/>
+  <meta name="x5-orientation" content="landscape">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.72851.css"/>
+
+</head>
+<body>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+<script src="src/settings.f7cd3.js" charset="utf-8"></script>
+
+<script src="main.9c261.js" charset="utf-8"></script>
+
+<div style="display: none;">
+
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/0.7d943.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/1.7f21d.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/10.7018f.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/11.0060c.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/12.dbbc7.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/13.646d8.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/14.6737c.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/15.249e8.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/16.8171e.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/17.fc462.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/18.2207e.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/19.06cea.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/2.1903a.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/20.db76c.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/21.5f894.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/3.5c7a8.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/4.64741.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/5.51545.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/6.1d2a9.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/7.08651.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/8.59e41.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/9.72df1.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/jump.c4360.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioL/stand.56adb.png" alt="">
+
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/0.ad8f2.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/1.7a089.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/10.dbcc4.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/11.365c6.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/12.18f58.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/13.b4d03.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/14.c1d97.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/15.f3ed3.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/16.b147d.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/17.835d4.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/18.93f24.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/19.56ddd.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/2.6b38a.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/20.7d71e.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/21.214aa.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/3.0948d.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/4.bc8a3.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/5.03779.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/6.f1b4a.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/7.d938e.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/8.d34ab.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/9.aad82.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/jump.cfd20.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/mario/smallmario/marioR/stand.bf3b0.png" alt="">
+
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/0.650ee.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/1.26895.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/10.1a7f2.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/11.90b28.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/12.8d802.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/13.17891.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/14.a26a5.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/15.1099b.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/16.bb2c2.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/17.54ea3.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/18.4dea3.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/19.10fa9.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/2.ccf8a.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/20.b4cd1.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/21.b1b64.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/22.16f94.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/23.d91c7.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/24.0189c.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/25.a4586.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/26.f4bbf.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/27.579ff.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/28.32782.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/29.8e94b.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/3.08d1e.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/30.edc99.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/31.0fc53.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/32.3d751.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/33.bf02f.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/34.268d4.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/35.fca22.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/4.98746.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/5.1cfc3.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/6.41a4c.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/7.c61af.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/8.f79f7.png" alt="">
+<img src="/res/raw-assets/Texture/Super Mario Bros/badflower/9.4fb17.png" alt="">
+
+</div>
+</body>
+</html>

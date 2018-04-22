@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内容管理系统</title>
+    <style>
+        .CMS_title{
+            text-align: center;
+            line-height: 100px;
+        }
+        .CMS_login{
+            width: 300px;
+            margin: 100px auto 0;
+        }
+        .CMS_login input{
+            width: 100%;
+            border:none;
+            border-bottom:1px solid #eee;
+            outline: none;
+            height: 40px;
+            transition: all .3s;
+        }
+        .CMS_login input:focus{
+            border-bottom:1px solid #333;
+        }
+        .CMS_login button{
+            width: 100%;
+            border:none;
+            background: none;
+            border-bottom:1px solid #eee;
+            height: 40px;
+            outline: none;
+            transition: all .3s;
+        }
+        .CMS_login button:hover{
+            border-bottom:1px solid #333;
+        }
+        .CMS_login button:active{
+            background:#333;
+            color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="CMS_title">
+        内容管理系统
+    </div>
+    <div class="CMS_login">
+        <div class="CMS_login_name">
+            <input type="text" placeholder="用户名">
+        </div>
+        <div class="CMS_login_password">
+            <input type="text" placeholder="密码">
+        </div>
+        <div class="CMS_login_submit">
+            <button>登录</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.querySelector('.CMS_login_submit').addEventListener('click',function(){
+            axios.post('/CMS/login', {
+                name:document.querySelector('.CMS_login_name input').value,
+                password: document.querySelector('.CMS_login_password input').value
+            })
+                .then(function (response) {
+                    if(response.data.success){
+                        location.reload();
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%include ../utils/highlightCode.html %>
+        <title>转盘</title>
+        <%include ../utils/plugin-app-css.html %>
+</head>
+
+<body>
+    <%include ../layout/header.html %>
+
+        <div class="plugin-main clearfix">
+            <div class="plugin-content fl">
+                <div class="name">
+                    <h2>抽奖转盘</h2>
+                </div>
+                <%include ../../assets/myPlugin/turntable/turntable.html %>
+                    <div class="title" id="anchor_statement">
+                        <a href="#anchor_statement">声明</a>
+                    </div>
+                    <div class="description">
+                        本插件可以帮助你，快速创建一个 活动抽奖转盘，并提供旋转转盘的方法。 插件基于jquery，使用canvas创建转盘。
+                        
+                        <p class="github">
+                            喜欢的点个Star 呗！
+                            <a href="https://github.com/yangchaojie456/turntable" class="relatedLink" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                    <div class="title" id="anchor_compatibility">
+                        <a href="#anchor_compatibility">兼容性</a>
+                    </div>
+                    <div>
+                        适用于所有主流浏览器及移动端的浏览器。IE8及以下不支持
+                    </div>
+                    <div class="title" id="anchor_usage">
+                        <a href="#anchor_usage">用法</a>
+                    </div>
+                    <div>
+                        首先创建一个canvas
+                    </div>
+                    <div class="code">
+                        <pre>
+    <code>
+        &lt;canvas id="myCanvas" width="600" height="600"&gt;
+            当前浏览器版本过低，请使用其他浏览器尝试
+        &lt;/canvas&gt;
+    </code>
+</pre>
+
+                    </div>
+                    <div>
+                        再引入jquery和插件js
+                    </div>
+                    <div class="code">
+                        <pre>
+    <code>
+        &lt;script src="http://code.jquery.com/jquery-1.12.4.js"&gt;&lt;/script&gt;
+        &lt;script src="/assets/myPlugin/turntable/turntable.js"&gt;&lt;/script&gt;
+    </code>
+</pre>
+                    </div>
+                    <div>
+                        定义转盘参数及初始化
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        // 定义转盘奖品
+        var wheelSurf = $('#myCanvas').WheelSurf({
+            list: list, // 奖品 列表，(必填)
+            outerCircle: {
+                color: '#df1e15' // 外圈颜色(可选)
+            },
+            innerCircle: {
+                color: '#f4ad26' // 里圈颜色(可选)
+            },
+            dots: ['#fbf0a9', '#fbb936'], // 装饰点颜色(可选)
+            disk: ['#ffb933', '#ffe8b5', '#ffb933', '#ffd57c', '#ffb933', '#ffe8b5', '#ffd57c'], //中心奖盘的颜色，默认7彩(可选)
+            title: {
+                color: '#5c1e08',
+                font: '19px Arial'
+            } // 奖品标题样式(可选)
+        })
+
+        // 初始化转盘
+        wheelSurf.init()
+    </code>
+</pre>
+                    </div>
+                    <div>
+                        关键方法旋转转盘
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        // 转盘抽奖，
+        wheelSurf.lottery(旋转角度, function () {
+            console.log("旋转结束的回调函数")
+        })
+    </code>
+</pre>
+                    </div>
+                    <div class="title" id="anchor_api">
+                        <a href="#anchor_api">API</a>
+                    </div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>方法</th>
+                                    <th>对象</th>
+                                    <th>参数</th>
+                                    <th>返回值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WheelSurf()</td>
+                                    <td>canvas的JQuery对象</td>
+                                    <td>
+                                        <p>@param {Object} options</p>
+                                        <p>@param {Array} options.list 存储奖品的的列表，example [{1:{name:'谢谢参与',image:'1.jpg'}}]</p>
+                                        <p>@param {Object} options.outerCircle {color:'#df1e15'} 外圈颜色，默认红色</p>
+                                        <p>@param {Object} options.innerCircle {color:'#f4ad26'} 里圈颜色，默认黄色</p>
+                                        <p>@param {Array} options.dots ['#fbf0a9', '#fbb936'] 装饰点颜色 ，默认深黄浅黄交替</p>
+                                        <p>@param {Array} options.disk ['#ffb933', '#ffe8b5', '#ffb933', '#ffd57c', '#ffb933', '#ffe8b5', '#ffd57c'] 中心奖盘的颜色，默认7彩</p>
+                                        <p>@param {Object} options.title {color:'#5c1e08',font:'19px Arial'} 奖品标题颜色</p>
+                                    </td>
+                                    <td>WheelSurf对象</td>
+                                </tr>
+                                <tr>
+                                    <td>init()</td>
+                                    <td>WheelSurf对象</td>
+                                    <td>null</td>
+                                    <td>null</td>
+                                </tr>
+                                <tr>
+                                    <td>lottery()</td>
+                                    <td>WheelSurf对象</td>
+                                    <td>
+                                        <p>@param {number} 角度</p>
+                                        <p>@param {function} callback 旋转完成后的回调</p>
+                                    </td>
+                                    <td>null</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="title" id="anchor_attention">
+                        <a href="#anchor_attention">注意</a>
+                    </div>
+                    <div>
+                         因为无法得知获取奖品接口的格式及抽中奖品返回的格式，
+                         <ol>
+                             <li>1.本插件只提供初始化转盘和旋转转盘的接口。 </li>
+                             <li>2.需要按照demo 格式化成指定参数格式，才能正确初始化转盘 </li>
+                             <li>3.需要手写一点逻辑计算旋转角度 （顺时针数第几个奖品*360/奖品数量+（360/奖品数量）/2）</li>
+                         </ol>
+                    </div>
+                    <div class="title" id="anchor_demo">
+                        <a href="#anchor_demo">demo下载</a>
+                    </div>
+                    <div class="plug-download">
+                        <a href="/assets/myPlugin/turntable/turntable.zip" class="relatedLink" target="_blank">download</a>
+                    </div>
+            </div>
+            <div class="plugin-navigator fl">
+                <ul>
+                    <li class="on">
+                        <a href="#anchor_statement">声明</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_compatibility">兼容性</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_usage">用法</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_api">API</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_attention">注意</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_demo">下载</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <%include ../layout/footer.html %>
+        <%include ../layout/umeng.html%>
+</body>
+<%include ../utils/plugin-app-js.html %>
+</html>

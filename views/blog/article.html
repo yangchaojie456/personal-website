@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= article.a_title%>
+    </title>
+    <style>
+        .article_wrapper .article_banner {
+            position: relative;
+            height: 565px;
+            filter: saturate(0.7);
+            background-blend-mode: multiply, multiply;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+            background-position: center;
+            background-size: cover;
+            display: table;
+            width: 100%;
+        }
+
+        .article_wrapper .article_banner:after {
+
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 81px;
+            left: 0px;
+            bottom: -40px;
+            margin-top: -40px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .single-title-zone {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .single-title-zone h3 {
+            position: relative;
+            margin-bottom: 20px;
+            color: #6e6e6e;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .single-title-zone h3 a {
+            display: inline-block;
+            padding-left: 15px;
+            text-decoration: none;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .single-title-zone h3 a:first-child {
+            border-left: none;
+            padding-left: 0;
+            padding-right: 5px;
+        }
+
+        .single-title-zone a {
+            color: rgba(255, 255, 255, 0.75);
+            transition: 0.2s;
+        }
+
+        .single-title-zone a:hover,
+        .single-title-zone a:focus {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .single-title-zone h1 {
+            margin-bottom: 20px;
+            color: white;
+            font-family: 'Poppins', 'Arial Black';
+            font-weight: 700;
+            font-size: 47px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .single-title-zone h4 {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.84);
+            font-family: 'Vollkorn', 'Times New Roman', serif;
+            font-size: 19px;
+            text-align: center;
+        }
+
+
+
+        .article_wrapper .article_main {
+            width: 1200px;
+            margin: 100px auto 50px;
+            color: rgba(0, 0, 0, 0.68);
+            font-size: 21px;
+            line-height: 33px;
+        }
+
+        .article_wrapper .article_main .article_brief {
+            display: block;
+            padding: 35px 15px 20px 90px;
+            margin: 30px 0 30px 0;
+            background-image: url(/assets/images/quote.svg);
+            background-repeat: no-repeat;
+            border-left: 8px solid #efefef;
+            border-radius: 7px;
+            box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.07)
+        }
+
+        .article_wrapper .article_main .article_content {
+            padding: 10px 20px;
+        }
+
+        .article_wrapper .article_main .article_keyword span {
+            display: inline-block;
+            margin: 4px 0 10px 10px;
+            padding: 0 20px;
+            color: #262626;
+            background: #f6f6f6;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: none;
+            transition: 0.5s;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .article_wrapper .article_main .article_keyword span:hover {
+            background-color: white;
+            color: #262626;
+            text-decoration: none;
+            letter-spacing: 4px;
+        }
+
+        .article_wrapper .article_main .article_count {
+            line-height: 40px;
+        }
+
+        .article_wrapper .article_author hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+
+        .article_wrapper .article_author .alternative-single-author-bio {
+            text-align: center;
+        }
+
+        .article_wrapper .article_author .alternative-single-author-bio h4 {
+            display: inline-block;
+            margin: 0 3px 0 0;
+            color: rgba(0, 0, 0, 0.47);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .article_wrapper .article_author .alternative-single-author-bio h3 {
+            display: inline-block;
+            margin: 0;
+            font-size: 19px;
+            text-transform: uppercase;
+        }
+
+        .article_wrapper .article_comment {
+            width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 50px;
+
+        }
+
+        .article_wrapper .article_comment .img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+            transition: all .3s;
+        }
+
+        .article_wrapper .article_comment .img:hover {
+            border-radius: 5%;
+        }
+
+        .article_wrapper .article_comment .img img {
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .article_wrapper .article_comment .content {
+            padding-left: 20px;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+        }
+
+        .article_wrapper .article_comment .content h3 {
+            margin: 5px 0;
+        }
+
+        .article_wrapper .article_comment .content .comment_author {
+            color: #262626;
+            font-weight: 700;
+        }
+
+        .article_wrapper .article_comment .content .comment_content {
+            color: rgba(0, 0, 0, 0.55);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 30px;
+            overflow: hidden;
+        }
+
+        .article_wrapper .article_comment .content .comment_time {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .article_wrapper .article_comment .content .comment_reply {
+            text-align: right;
+            padding: 0 20px;
+            line-height: 40px;
+        }
+
+        .article_comment_reply {
+            padding-left: 100px;
+        }
+
+        .article_wrapper .article_comment .content .reply_author {
+            color: #262626;
+            font-weight: 700;
+        }
+
+        .article_wrapper .article_comment .content .reply_content {
+            color: rgba(0, 0, 0, 0.55);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 30px;
+            overflow: hidden;
+        }
+
+        .article_wrapper .article_comment .content .reply_time {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .article_wrapper .article_comment .content .reply_tag {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .article_wrapper .article_comment .content .reply_to_user {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .article_comment_count {
+            text-align: center;
+        }
+
+        .article_comment_count span {
+            display: inline-block;
+            margin: 20px auto 60px auto;
+            padding: 10px 40px 10px 40px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            border: 2px solid #262626;
+        }
+
+        .article_commit_title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .article_commit_title span {
+            display: inline-block;
+            padding: 10px 40px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            border: 2px solid #262626;
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .article_commit_title span:hover {
+            background: #262626;
+            color: #fff;
+        }
+
+        .article_leave_commit .article_commit_content textarea {
+            width: 100%;
+            resize: vertical;
+            border: none;
+            border-bottom: 1px solid #eee;
+            outline: none;
+            transition: all .3s;
+        }
+
+        .article_leave_commit .article_commit_content textarea:focus {
+            border-bottom: 2px solid #333;
+        }
+
+        .article_leave_commit input {
+            border: none;
+            border-bottom: 1px solid #eee;
+            outline: none;
+            transition: all .3s;
+            margin-top: 30px;
+            height: 40px;
+            width: 50%;
+
+        }
+
+        .article_leave_commit input:focus {
+            border-bottom: 2px solid #333;
+        }
+
+        .article_leave_commit .article_commit_submit button {
+            border: none;
+            background: none;
+            width: 50%;
+            height: 30px;
+            text-align: center;
+            outline: none;
+            margin-top: 40px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .article_leave_commit .article_commit_submit button:hover {
+            text-align: right;
+        }
+
+        .article_leave_commit .article_commit_submit button:active {
+            border-bottom: 1px solid #333;
+        }
+
+        .article_leave_commit .article_commit_author_header h4 {
+            font-size: 14px;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        .comment_reply .article_leave_commit .article_commit_author_header li {
+            float: right;
+        }
+
+        .article_leave_commit .article_commit_author_header li {
+            height: 150px;
+            width: 150px;
+            float: left;
+            margin-right: 100px;
+            position: relative;
+        }
+
+        .article_leave_commit .article_commit_author_header li img:hover {
+            border-radius: 10px;
+        }
+
+        .article_leave_commit .article_commit_author_header li img {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border-radius: 50px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            border: 5px solid #fff;
+            transition: all .3s;
+        }
+
+        .article_leave_commit .article_commit_author_header li.focus img {
+            border: 5px solid #62c8f3;
+        }
+
+        .comment_reply .comment_reply_btn {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+    .article_content .name h2 {
+        font-size: 60px;
+        margin-bottom: 50px;
+    }
+
+    .article_content .description {
+        color: #6d6d6d;
+        font-size: 24px;
+        line-height: 1.7;
+        margin-bottom: 26px;
+        box-shadow: 0px 24px 29px -22px rgba(0,0,0,0.4);
+    }
+
+    .article_content .description .github {
+        font-weight: bold;
+        color:black;
+        text-align: right;
+        line-height: 100px;
+    }
+    .article_content a{
+        cursor: pointer;
+    }
+    .article_content a.relatedLink {
+        background-color: rgba(187, 239, 253, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        color: #1a1a1a;
+    }
+
+    .article_content a.relatedLink:hover {
+        background-color: #bbeffd;
+        border-bottom-color: #1a1a1a;
+    }
+
+    .article_content .title {
+        padding-top: 40px;
+    }
+
+    .article_content .title a {
+        font-weight: bold;
+        font-size: 35px;
+        display: block;
+        border-top: 1px solid #ececec;
+        height: 120px;
+        line-height: 120px;
+    }
+    </style>
+    <%include ../utils/highlightCode.html %>
+</head>
+
+<body>
+    <%include ../layout/header.html %>
+        <!-- 主内容 -->
+        <div class="article_wrapper">
+
+            <% if(article.a_banner){%>
+                <div class="article_banner" style="background-image:url(<%=article.a_banner%>)">
+                    <%}else{%>
+                        <div class="article_banner" style="background-image:url(/assets/images/banner_default.jpg)">
+                            <%}%>
+                                <div class="single-title-zone">
+                                    <h3>
+                                        <a href="" title="Lifestyle">
+                                            <%= article.a_category%>
+                                        </a>
+                                    </h3>
+                                    <h1>
+                                        <%= article.a_title%>
+                                    </h1>
+                                    <h4>
+                                        <%= article.a_format_create_time%>
+                                    </h4>
+                                </div>
+                        </div>
+                        <div class="article_main">
+
+                            <div class="article_brief">
+                                <%- article.a_brief%>
+                            </div>
+                            <div class="article_content">
+                                <%- article.a_content%>
+
+                            </div>
+                            <div class="article_about clearfix">
+                                <p class="fl article_keyword">
+                                    <% article.a_keyword.split(',').forEach(function(item,index){%>
+                                        <span>
+                                            <%= item%>
+                                        </span>
+
+                                        <%})%>
+
+                                </p>
+                                <p class="fr article_count">阅读(
+                                    <%= article.a_read_count%>)</p>
+                            </div>
+                            <div class="article_author">
+                                <hr>
+                                <div class="alternative-single-author-bio">
+                                    <h4>Written by:</h4>
+                                    <h3>
+                                        <%= article.a_author%>
+                                    </h3>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <!-- 评论区 -->
+                        <div class="article_comment">
+                            <div class="article_comment_count">
+                                <span>
+                                    <%= comment.length %>个评论
+                                </span>
+                            </div>
+                            <% comment.forEach((item,index)=>{ %>
+
+                                <div class="article_comment_item clearfix">
+                                    <div class="article_c">
+
+                                        <div class="fl img">
+                                            <img src="/assets/images/header_<%=item.c_author.u_head_img%>.jpg" alt="">
+                                        </div>
+                                        <div class=" content">
+                                            <h3>
+                                                <span class="comment_author">
+                                                    <%=item.c_author.u_show_name%>
+                                                </span>
+                                                <span class="comment_time">
+                                                    <%=item.c_create_time.toLocaleString()%>
+                                                </span>
+                                            </h3>
+                                            <div class="comment_content">
+                                                <%=item.c_content%>
+                                            </div>
+                                            <div class="comment_reply">
+                                                <div class="comment_reply_btn" alt="reply" data-commentId=<%=item.c_id%>>
+                                                    回复
+                                                </div>
+                                                <div class="session_login">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="article_comment_reply">
+                                        <%item.replyList.forEach((el,i)=>{%>
+
+                                            <div class="article_comment_reply_item">
+                                                <div class="fl img">
+                                                    <img src="/assets/images/header_<%=el.r_author.u_head_img%>.jpg" alt="">
+                                                </div>
+                                                <div class=" content">
+                                                    <h3>
+                                                        <span class="reply_author">
+                                                            <%=el.r_author.u_show_name%>
+                                                        </span>
+                                                        <span class="reply_time">
+                                                            <%=el.r_create_time.toLocaleString()%>
+                                                        </span>
+
+                                                        回复
+
+                                                        <span class="reply_to_user">
+                                                            <%=el.r_to_user.u_show_name%>
+                                                        </span>
+                                                    </h3>
+                                                    <div class="reply_content">
+                                                        <%= el.r_content%>
+                                                    </div>
+                                                    <div class="comment_reply">
+                                                        <div class="comment_reply_btn"  alt="reply" data-commentId=<%=item.c_id%>>
+                                                            回复
+                                                        </div>
+                                                        <div class="session_login">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%})%>
+                                    </div>
+                                </div>
+
+                                <% })%>
+                                    <div class="article_commit_title">
+                                        <span>评论</span>
+                                    </div>
+                                    <div class="article_leave_commit_restoration">
+
+                                    </div>
+                                    <!-- 发布评论 -->
+                                    <div class="article_leave_commit">
+
+                                        <div class="article_commit_content">
+                                            <textarea id="" rows="5" placeholder="评论..."></textarea>
+                                        </div>
+                                        <% if(!isSession){ %>
+                                            <div class="article_commit_author_name">
+                                                <input type="text" placeholder="名称-仅用于称呼">
+                                            </div>
+                                            <div class="article_commit_author_email">
+                                                <input type="text" placeholder="邮箱-仅用于交流">
+                                            </div>
+                                            <div class="article_commit_author_header">
+                                                <h4>
+                                                    头像选择
+                                                </h4>
+                                                <ul class="clearfix">
+                                                    <li class="focus" title="男" alt="boy">
+                                                        <img src="/assets/images/header_boy.jpg" alt="">
+                                                    </li>
+                                                    <li title="女" alt="girl">
+                                                        <img src="/assets/images/header_girl.jpg" alt="">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <% } %>
+                                                <div class="article_commit_submit">
+                                                    <button>发布</button>
+                                                </div>
+                                    </div>
+                        </div>
+                </div>
+
+
+                <%include ../layout/footer.html%>
+                    <%include ../layout/umeng.html%>
+</body>
+<script>
+    // 切换用户头像
+    document.querySelectorAll('.article_commit_author_header li').forEach(function (el, item) {
+        el.addEventListener('click', function () {
+            document.querySelectorAll('.article_commit_author_header li').forEach(function (el, item) {
+                el.classList.remove('focus')
+            })
+            el.classList.add('focus')
+        })
+    })
+    document.querySelector('.article_commit_submit button').addEventListener('click', function () {
+        //发送评论（暂没加前台验证，本来就是用来讨论问题的，没有加验证.）
+        if(this.classList.contains('reply')){
+            
+            commit_Id = this.getAttribute('data-commentId')            
+            axios.post('/blog/sendReply', {
+                commit_Id: commit_Id,
+                commit: document.querySelector('.article_commit_content textarea').value,
+                name: document.querySelector('.article_commit_author_name input') ? document.querySelector('.article_commit_author_name input').value : '',
+                email: document.querySelector('.article_commit_author_email input') ? document.querySelector('.article_commit_author_email input').value : '',
+                gender: document.querySelector('.article_commit_author_header li.focus') ? document.querySelector('.article_commit_author_header li.focus').getAttribute('alt') : ''
+            })
+                .then(function (response) {
+                    console.log(response);
+                    if(response.data.success){
+                        location.reload()
+                    }
+                })
+                .catch(function (error) {
+                    // console.log(error);
+                });
+        }else{
+            axios.post('/blog/sendCommit', {
+                articleId: location.pathname.replace('/blog/', ''),
+                commit: document.querySelector('.article_commit_content textarea').value,
+                name: document.querySelector('.article_commit_author_name input') ? document.querySelector('.article_commit_author_name input').value : '',
+                email: document.querySelector('.article_commit_author_email input') ? document.querySelector('.article_commit_author_email input').value : '',
+                gender: document.querySelector('.article_commit_author_header li.focus') ? document.querySelector('.article_commit_author_header li.focus').getAttribute('alt') : ''
+            })
+                .then(function (response) {
+                    console.log(response);
+                    if (response.data.success) {
+                        location.reload()
+                    }
+                })
+                .catch(function (error) {
+                    // console.log(error);
+                });
+        }
+        return false;
+        
+    })
+
+    // 回复
+
+    document.querySelectorAll('.comment_reply_btn').forEach(function (el, index) {
+
+        el.addEventListener('click', function () {            
+            this.nextElementSibling.appendChild(document.querySelector('.article_leave_commit'))
+            var _btn = document.querySelector('.article_leave_commit').querySelector('button')
+            if(this.getAttribute('alt')=='reply'){
+                _btn.classList.add('reply')
+                _btn.setAttribute('data-commentId', this.getAttribute('data-commentId'))
+            }else{
+                _btn.classList.remove('reply')
+                _btn.removeAttribute('data-commentId')
+            }
+        })
+    })
+    document.querySelector('.article_commit_title span').addEventListener('click', function () {
+        document.querySelector('.article_leave_commit_restoration').appendChild(document.querySelector('.article_leave_commit'))
+        var _btn = document.querySelector('.article_leave_commit').querySelector('button')
+        _btn.classList.remove('reply')
+        _btn.removeAttribute('data-commentId')
+    })
+</script>
+
+</html>

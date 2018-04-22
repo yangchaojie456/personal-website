@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="/assets/css/main.css">
+<style>
+    body {
+        padding-top: 80px;
+    }
+
+    .header {
+        width: 100%;
+        height: 80px;
+        padding: 20px 0;
+        background: white;
+        box-shadow: 0 0 10px 1px #999;
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+    }
+
+    .header .header-stage {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2%;
+        position: relative;
+    }
+
+    .header .header-stage .header-list {
+        line-height: 40px;
+        float: right;
+    }
+
+    .header .header-stage .header-list li {
+        padding: 0 20px;
+        font-size: 20px;
+        font-weight: bold;
+        float: left;
+    }
+
+    .header .header-stage .header-list li a {
+        border-bottom: 0px solid #333;
+        transition: all 0.1s linear;
+    }
+
+    .header .header-stage .header-list li a:hover {
+        border-bottom: 3px solid #333;
+    }
+
+    .header .header-stage .header-list li a.on {
+        border-bottom: 3px solid #333;
+    }
+
+    .header .header-stage .header-logo {
+        float: left;
+        background: black;
+        color: white;
+        font-weight: bold;
+        padding: 0 10px;
+        margin: 6px 0;
+        font-size: 18px;
+        width: 140px;
+        height: 28px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .header .header-stage .header-logo .header-logo-stage {
+        position: relative;
+        height: 100%;
+        transform-style: preserve-3d;
+        -webkit-perspective: 1000;
+        transition: all 0.5s ease-in-out;
+
+    }
+
+    .header .header-stage .header-logo:hover .header-logo-stage {
+
+        transform: rotateX(90deg);
+    }
+
+    .header .header-stage .header-logo .header-logo-stage>div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 28px;
+    }
+
+    .header .header-stage .header-logo .header-logo-stage>div.front {
+        transform: translateZ(14px);
+        color: white;
+    }
+
+    .header .header-stage .header-logo .header-logo-stage>div.bottom {
+        transform: rotateX(-90deg) translateZ(14px);
+        color: white;
+    }
+
+    .header .header-stage .menu {
+        height: 26px;
+        width: 34px;
+        border: 2px solid #333;
+        margin: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .header .header-stage .menu span {
+        display: block;
+        margin: 5px auto;
+        border-bottom: 1px solid #333;
+        width: 26px;
+    }
+
+    .header .drop-menu {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        background: white;
+        border-top: 1px solid #333;
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: bold;
+        transition: all 0.2s linear;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .header .drop-menu-close {
+        height: 0;
+    }
+
+    .header .drop-menu li {
+        padding: 0 2%;
+        transition: all 0.5s linear;
+    }
+
+    .header .drop-menu li:hover {
+        background: #333;
+    }
+
+    .header .drop-menu li:hover a {
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: 40px;
+        }
+        .header {
+            height: 40px !important;
+            padding: 0 !important;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="header-stage clearfix">
+            <div class="header-logo">
+                <a href="/">
+                    <div class="header-logo-stage">
+                        <div class="front">zero to one</div>
+                        <div class="bottom">yang chao jie</div>
+                    </div>
+                </a>
+            </div>
+            <!-- 响应式 -->
+            <!-- 正常菜单 -->
+            <ul class="header-list hidden-xs">
+                <li>
+                    <a class="index" href="/index">首页</a>
+                </li>
+                <li>
+                    <a class="blog" href="/blog">随笔</a>
+                </li>
+                <li>
+                    <a class="plugin" href="/plugin">插件</a>
+                </li>
+                <li>
+                    <a class="about" href="/about">ABOUT</a>
+                </li>
+            </ul>
+            <!-- 下拉菜单 -->
+            <div class="menu js-menu fr visible-xs hidden-sm hidden-md hidden-lg">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="drop-menu drop-menu-close hidden-sm hidden-md hidden-lg">
+            <ul class="">
+                <li>
+                    <a class="index" href="/index">首页</a>
+                </li>
+                <li>
+                    <a class="blog" href="/blog">随笔</a>
+                </li>
+                <li>
+                    <a class="plugin" href="/plugin">插件</a>
+                </li>
+                <li>
+                    <a class="about" href="/about">ABOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<div style="display:none;">
+    <%include umeng.html%>
+</div>
+</body>
+
+<script src="/assets/js/app.js"></script>

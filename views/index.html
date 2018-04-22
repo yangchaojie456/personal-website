@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zero to one</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/index.css">    
+</head>
+
+<body>
+    <div class="hello">
+        hello
+    </div>
+    <div class="welcome">
+        welcome
+    </div>
+    <div class="tool">
+        <ul class="clearfix">
+            <li class="on">
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    <div class="enter">
+        <a href="/index">
+        <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="-361.6 187.2 165.3 187.5" style="enable-background:new -361.6 187.2 165.3 187.5;" xml:space="preserve">        
+            <path class="st0" d="M-267.9,286.5l5.5-5.5l0,0l0,0l-5.5-5.5l0,0l-88.2-88.3l-5.5,5.5l88.2,88.3l-88.3,88.2l5.5,5.5L-267.9,286.5
+        	L-267.9,286.5z M-295.5,192.8l88.2,88.3l-88.3,88.2l5.5,5.5l93.7-93.7l-5.5-5.5l0,0l-88.2-88.3L-295.5,192.8L-295.5,192.8z"
+            />
+        </svg>
+        </a>
+    </div>
+    <div class="lineStage">              
+        <canvas id="lineCanvas" width="1920" height="1080"></canvas>
+    </div>
+    <audio src="./assets/audio/intro.mp3" autoplay></audio>
+    <audio src="./assets/audio/index_btn.mp3" id="btn_voice"></audio>
+    <script src="./assets/js/index.js"></script>
+</body>
+<%include ./layout/umeng.html%>
+</html>

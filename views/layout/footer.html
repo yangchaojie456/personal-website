@@ -1,0 +1,160 @@
+<style>
+    .footer {
+        background-color: #141414;
+    }
+
+    .instagram-title {
+        position: relative;
+        width: 235px;
+        height: 35px;
+        margin: 0 auto -35px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        z-index: 2;
+        background-color: #262626;
+        color: #fff;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .footer-curve {
+        position: relative;
+        height: 100px;
+        top: -56px;
+        bottom: 0;
+        padding-left: 0px;
+        width: 100%;
+        background: #141414;
+    }
+
+    .footer-curve:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 63px;
+        top: -33px;
+        left: 0px;
+        background: #fff;
+        border-radius: 50%
+    }
+
+    .footer-dark-area {
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        margin-top: -60px;
+        padding-left: 0px;
+        padding-bottom: 70px;
+        background-color: #141414;
+    }
+
+    .footer-text {
+        margin-top: 70px;
+    }
+
+    .footer-text p {
+        padding: 0 20px;
+        margin-bottom: 0;
+        color: #d8d9d9;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 11px;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .footer-text a {
+        color: #fff;
+        font-weight: 800;
+        transition: 0.3s;
+    }
+
+    .footer-text a:hover,
+    .footer-text a:focus {
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 3px;
+        transition: 0.3s;
+    }
+
+    .footer-text .additional {
+        margin: 0 auto 20px auto;
+        max-width: 900px;
+    }
+
+    .footer-social-icons {
+        padding-top: 10px;
+        padding-left: 0;
+        text-decoration: none;
+        text-align: center;
+        list-style: none;
+    }
+
+    .footer-social-icons li {
+        display: inline-block;
+        margin: 2px 35px 2px 35px;
+    }
+
+    .footer-social-icon a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        color: #262626;
+        border-radius: 50%;
+        padding-top: 5px;
+        margin-bottom: 30px;
+        vertical-align: 17px;
+        transition: 0.5s;
+    }
+
+    .footer-social-icon a:hover,
+    .footer-social icon a:focus {
+        width: 40px;
+        height: 40px;
+        padding-top: 11px;
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: white;
+        background: #262626;
+        border: none;
+        box-shadow: 0px 0px 104px 0px rgba(255, 255, 255, 0.22);
+        transition: 0.5s;
+    }
+
+
+    @media (max-width: 768px) {
+        .footer .footer-contact {
+            padding: 0 !important;
+        }
+        .footer .footer-copyright {
+            height: 40px;
+        }
+    }
+</style>
+
+
+<body>
+
+
+    <footer class="footer">
+        <div class="footer-curve"></div>
+        <div class="footer-dark-area">
+            <div class="footer-text">
+                <p class="additional"></p>
+                <p>Copyright © 2018 YangCJ</p>
+                <p>designed by
+                    <a href="mailto:yangchaojie456@126.com">yangCJ</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>

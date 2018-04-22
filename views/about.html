@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关于</title>
+    <style>
+        .about-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
+            font-size: 24px;
+
+        }
+
+        .about-main .about-info {
+            width: 600px;
+            float: left;
+        }
+
+        .about-main p {
+            padding: 20px 0;
+
+            margin: 0 auto;
+            line-height: 30px;
+        }
+
+        .about-main p label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        .about-main p span {
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            line-height: 30px;
+            height: 30px;
+            color: black;
+            overflow: hidden;
+            animation: showSpan 1s linear;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .about-main p span:hover{
+            border-bottom:2px solid #333;
+        }
+
+        .about-main .about-Address span {
+            /* color:white; */
+            /* animation: breatheAddress 2s 1s ease-in-out infinite alternate; */
+        }
+
+        .about-main p span:before {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+            bottom: 0;
+            left: 120%;
+            animation: blackWrite 2s ease-in-out;
+        }
+
+        #allmap {
+            width: 600px;
+            height: 600px;
+            float: left;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            box-shadow: 0px 16px 21px -13px rgba(0,0,0,0.9);
+        }
+
+        @keyframes breatheAddress {
+            0% {
+                color: #333;
+            }
+            100% {
+                color: #eee;
+            }
+        }
+
+        @keyframes showSpan {
+            0% {
+                color: white;
+            }
+            99% {
+                color: white;
+            }
+            100% {
+                color: black;
+            }
+        }
+
+        @keyframes blackWrite {
+            0% {
+                left: -120%;
+            }
+            100% {
+                left: 120%;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kG7GukQDnM8oZKQgH9DBHrg0ZbB2xGUh"></script>
+</head>
+
+<body>
+    <%include ./layout/header.html %>
+        <div class="about-main clearfix">
+            <div class="about-info">
+
+                <div class="about-Email">
+                    <p>
+                        <label>E-mail:</label>
+                        <a href="mailto:yangchaojie456@126.com">
+                            <span>yangchaojie456@126.com</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="about-Tel">
+                    <p>
+                        <label>Tel:</label>
+                        <a href="tel:15618930832">
+                            <span>15618930832</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="about-Address">
+                    <p>
+                        <label>Address:</label>
+                        <span id="js_address_map">上海市浦东新区高博路211弄东旭雅苑</span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="allmap"></div>
+
+        </div>
+        <%include ./layout/footer.html %>
+        <%include ./layout/umeng.html%>
+</body>
+<script>
+    // 百度地图API功能
+    var sContent = "上海市浦东新区高博路211弄东旭雅苑";
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    var point = new BMap.Point(121.5867571527, 31.3028356855)
+    map.centerAndZoom(point, 15);  // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+    }));
+    map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true)
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+    var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+    map.openInfoWindow(infoWindow, point); //开启信息窗口
+
+    // document.getElementById('js_address_map').onclick = function () {
+    //     document.getElementById('allmap').style.display = 'block';
+    // }
+</script>
+
+</html>

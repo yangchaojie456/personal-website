@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | SuperMarioBros</title>
+
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="full-screen" content="yes"/>
+  <meta name="screen-orientation" content="portrait"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  
+  <link rel="stylesheet" type="text/css" href="style-desktop.css"/>
+</head>
+<body>
+<h1 class="">SuperMarioBros</h1>
+
+<div id="GameDiv" style="width:1100px; height: 720px;">
+  <canvas id="GameCanvas" width="1100" height="720"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+</div>
+<P>人物动作图片比较多，加载在30秒左右</P>
+<p class="footer">Created with <a href="http://cocos.com/cocoscreator" title="cocos creator">Cocos Creator</a></p>
+<p>控制键 right 向前 left向后 up跳跃</p>
+<p>长按加速</p>
+
+<script src="src/settings.js" charset="utf-8"></script>
+<script src="main.js" charset="utf-8"></script>
+<div style="display: none">
+  <!-- 预加载图片 -->
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/0.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/1.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/2.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/3.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/4.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/5.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/6.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/7.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/8.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/9.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/10.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/11.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/12.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/13.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/14.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/15.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/16.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/17.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/18.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/19.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/20.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioL/21.png" alt="">
+
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/0.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/1.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/2.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/3.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/4.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/5.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/6.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/7.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/8.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/9.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/10.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/11.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/12.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/13.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/14.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/15.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/16.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/17.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/18.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/19.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/20.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/mario/smallmario/marioR/21.png" alt="">
+  
+
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/1.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/2.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/3.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/4.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/5.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/6.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/7.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/8.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/9.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/10.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/11.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/12.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/13.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/14.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/15.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/16.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/17.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/18.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/19.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/20.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/21.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/22.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/23.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/24.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/25.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/26.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/27.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/28.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/29.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/30.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/31.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/32.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/33.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/34.png" alt="">
+  <img src="/res/raw-assets/Texture/Super%20Mario%20Bros/badflower/35.png" alt="">
+</div>
+</body>
+</html>

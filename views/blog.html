@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blog</title>
+    <style>
+        .blog-main {
+            max-width: 1200px;
+            margin: 100px auto 200px;
+        }
+
+        .blog-main .blog-list .blog-item {
+            margin: 25px 0;
+            position: relative;
+
+        }
+
+        .blog-main .blog-list .blog-item .blog-image {
+            width: 350px;
+            height: 350px;
+            background: url('/assets/images/stick_figure.jpg') center no-repeat;
+            background-size: 100%;
+            float: left;
+            box-shadow: 0px 23px 55px -22px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            position: relative;
+            transition: all .3s;
+        }
+        .blog-main .blog-list .blog-item .blog-image:hover{
+            box-shadow:unset;
+        }
+
+        .blog-main .blog-list .blog-item .blog-image:hover img {
+            height: 120%;
+        }
+
+        .blog-main .blog-list .blog-item .blog-image img {
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 1s;
+        }
+
+        .blog-main .blog-list .blog-item .blog-description {
+            overflow: hidden;
+            padding-left: 50px;
+            text-transform: capitalize;
+            color: #444;
+        }
+
+        .blog-main .blog-list .blog-item .blog-category {
+            line-height: 35px;
+            font-size: 20px;
+
+        }
+
+        .blog-main .blog-list .blog-item .blog-title {
+            line-height: 60px;
+            font-size: 35px;
+            color: black;
+        }
+
+        .blog-main .blog-list .blog-item .blog-author-time {
+            line-height: 35px;
+            font-size: 20px;
+        }
+
+        .blog-main .blog-list .blog-item .blog-abstract {
+            margin: 20px 0;
+            line-height: 40px;
+            font-size: 20px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            height: 111px;
+        }
+
+
+        .blog-main .blog-list .blog-item .blog-enter a {
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            border: 2px solid #333;
+            line-height: 38px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: all 0.5s;
+        }
+
+        .blog-main .blog-list .blog-item .blog-enter a:hover {
+            color: white;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <%include ./layout/header.html %>
+        <div class="blog-main">
+            <div class="blog-list">
+                <ul>
+                    <% for(var i =0;i<articleList.length;i++){ %>
+
+                        <li>
+                            <div class="blog-item clearfix">
+                                <div class="blog-image">
+                                    <img src="<%= articleList[i].a_banner %>" alt="">
+                                </div>
+                                <div class="blog-description">
+                                    <div class="blog-category">
+                                        <%= articleList[i].a_category %>
+                                    </div>
+                                    <div class="blog-title">
+                                        <%= articleList[i].a_title %>
+                                    </div>
+                                    <div class="blog-author-time">
+                                        <%= articleList[i].a_format_create_time %> /
+                                            <%= articleList[i].a_author %>
+                                    </div>
+                                    <div class="blog-abstract">
+                                        <%= articleList[i].a_brief %>
+                                    </div>
+                                    <div class="blog-enter">
+                                        <a href="/blog/<%= articleList[i].a_id %>">
+                                            read more
+                                        </a>
+                                        <% if(role){ %>
+                                            <a style="float: right;" href="javascript:;" class="article_delete" alt="<%= articleList[i].a_id %>">
+                                                delete
+                                            </a>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <% } %>
+
+                </ul>
+            </div>
+        </div>
+        <%include ./layout/footer.html %>
+        <%include ./layout/umeng.html%>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    document.querySelectorAll('.article_delete').forEach(function(item,index){
+        item.addEventListener('click', function () {
+            var a_id = this.getAttribute('alt')
+             axios.post('/blog/deleteArticle', {
+                a_id:a_id
+            })
+                .then(function (response) {
+                    console.log(response);
+                    location.reload();
+                })
+                .catch(function (error) {
+                    // console.log(error);
+                });
+        })
+    })
+</script>
+</html>

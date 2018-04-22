@@ -1,0 +1,12 @@
+<script>
+    // 侧边导航标记
+    var nodes = document.querySelectorAll('.plugin-navigator ul li')
+    for(var i = 0 ; i<nodes.length;i++){
+        nodes[i].onclick=function(){
+            for (var i = 0; i < nodes.length; i++) {
+                nodes[i].classList.remove('on')
+            }
+            this.classList.add('on')
+        }
+    }
+</script>

@@ -1,0 +1,267 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+body, ul, li, a, h2, h3, div, p, span {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    font-size: 16px;
+}
+
+tr:nth-child(2n) {
+    background: #f6f8fa;
+}
+
+/* 响应式 区块*/
+
+@media (min-width:1200px) {
+    .visible-lg {
+        display: block;
+    }
+    .hidden-lg {
+        display: none;
+    }
+    .col-lg-1 {
+        width: 8.3333333333333333333333333333333%;
+    }
+    .col-lg-2 {
+        width: 16.666666666666666666666666666667%;
+    }
+    .col-lg-3 {
+        width: 25%;
+    }
+    .col-lg-4 {
+        width: 33.333333333333333333333333333333%;
+    }
+    .col-lg-5 {
+        width: 41.666666666666666666666666666667%;
+    }
+    .col-lg-6 {
+        width: 50%;
+    }
+    .col-lg-7 {
+        width: 58.333333333333333333333333333333%;
+    }
+    .col-lg-8 {
+        width: 66.666666666666666666666666666667%;
+    }
+    .col-lg-9 {
+        width: 75%;
+    }
+    .col-lg-10 {
+        width: 83.333333333333333333333333333333%;
+    }
+    .col-lg-11 {
+        width: 91.666666666666666666666666666667%;
+    }
+    .col-lg-12 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .visible-md {
+        display: block;
+    }
+    .hidden-md {
+        display: none;
+    }
+    .col-md-1 {
+        width: 8.3333333333333333333333333333333%;
+    }
+    .col-md-2 {
+        width: 16.666666666666666666666666666667%;
+    }
+    .col-md-3 {
+        width: 25%;
+    }
+    .col-md-4 {
+        width: 33.333333333333333333333333333333%;
+    }
+    .col-md-5 {
+        width: 41.666666666666666666666666666667%;
+    }
+    .col-md-6 {
+        width: 50%;
+    }
+    .col-md-7 {
+        width: 58.333333333333333333333333333333%;
+    }
+    .col-md-8 {
+        width: 66.666666666666666666666666666667%;
+    }
+    .col-md-9 {
+        width: 75%;
+    }
+    .col-md-10 {
+        width: 83.333333333333333333333333333333%;
+    }
+    .col-md-11 {
+        width: 91.666666666666666666666666666667%;
+    }
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .visible-sm {
+        display: block;
+    }
+    .hidden-sm {
+        display: none;
+    }
+    .col-sm-1 {
+        width: 8.3333333333333333333333333333333%;
+    }
+    .col-sm-2 {
+        width: 16.666666666666666666666666666667%;
+    }
+    .col-sm-3 {
+        width: 25%;
+    }
+    .col-sm-4 {
+        width: 33.333333333333333333333333333333%;
+    }
+    .col-sm-5 {
+        width: 41.666666666666666666666666666667%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-7 {
+        width: 58.333333333333333333333333333333%;
+    }
+    .col-sm-8 {
+        width: 66.666666666666666666666666666667%;
+    }
+    .col-sm-9 {
+        width: 75%;
+    }
+    .col-sm-10 {
+        width: 83.333333333333333333333333333333%;
+    }
+    .col-sm-11 {
+        width: 91.666666666666666666666666666667%;
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .visible-xs {
+        display: block;
+    }
+    .hidden-xs {
+        display: none;
+    }
+    .col-xs-1 {
+        width: 8.3333333333333333333333333333333%;
+    }
+    .col-xs-2 {
+        width: 16.666666666666666666666666666667%;
+    }
+    .col-xs-3 {
+        width: 25%;
+    }
+    .col-xs-4 {
+        width: 33.333333333333333333333333333333%;
+    }
+    .col-xs-5 {
+        width: 41.666666666666666666666666666667%;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .col-xs-7 {
+        width: 58.333333333333333333333333333333%;
+    }
+    .col-xs-8 {
+        width: 66.666666666666666666666666666667%;
+    }
+    .col-xs-9 {
+        width: 75%;
+    }
+    .col-xs-10 {
+        width: 83.333333333333333333333333333333%;
+    }
+    .col-xs-11 {
+        width: 91.666666666666666666666666666667%;
+    }
+    .col-xs-12 {
+        width: 100%;
+    }
+}
+
+/* 自定义滚动条 */
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-button {
+    /* background-color: #FF7677; */
+}
+
+::-webkit-scrollbar-track {
+    /* background: #eee; */
+}
+
+/* 滚动条背景 */
+
+::-webkit-scrollbar-track-piece {
+    /* background: black; */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #62c8f3;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-corner {
+    /* background: #82AFFF; */
+}
+
+::-webkit-scrollbar-resizer {
+    /* background: #FF0BEE; */
+}

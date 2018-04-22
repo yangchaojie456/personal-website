@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%include ../utils/highlightCode.html %>
+        <title>环形图</title>
+        <%include ../utils/plugin-app-css.html %>
+</head>
+
+<body>
+    <%include ../layout/header.html %>
+
+        <div class="plugin-main clearfix">
+            <div class="plugin-content fl">
+                <div class="name">
+                    <h2>环形图(圆角)</h2>
+                </div>
+                <%include ../../assets/myPlugin/donut-chart/example.html %>
+                    <div class="title" id="anchor_statement">
+                        <a href="#anchor_statement">声明</a>
+                    </div>
+                    <div class="description">
+                        <p>市场上虽然有各种基于canvas的图表工具，比如echarts.js ,chart.js。他们功能都很强大，性能也比较优秀。但是饼形图或环形图中并没有以圆角为交界的图表。</p>
+                        <strong>本插件使用canvas可以帮助你快速创建一个以圆角交界的环形图</strong>
+                        <p class="github">
+                            喜欢的点个Star 呗！
+                            <a href="https://github.com/yangchaojie456/donut-chart" class="relatedLink" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                    <div class="title" id="anchor_compatibility">
+                        <a href="#anchor_compatibility">兼容性</a>
+                    </div>
+                    <div>
+                        适用于所有主流浏览器及移动端的浏览器。IE8及以下不支持
+                    </div>
+                    <div class="title" id="anchor_install">
+                        <a href="#anchor_install">安装</a>
+                    </div>
+                    <div>
+                         npm install donut-chart
+                    </div>
+                    <div class="title" id="anchor_usage">
+                        <a href="#anchor_usage">用法</a>
+                    </div>
+                    <div>
+                            首先需要一个canvas做载体
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        &lt;canvas id="myCanvas" width="750" height="600"&gt;
+            当前浏览器版本过低，请使用其他浏览器尝试
+        &lt;/canvas&gt;
+    </code>
+</pre>
+
+                    </div>
+                    <div>
+                            然后创建环形图对象
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        var cir = new DonutChart('myCanvas', option)
+    </code>
+</pre>
+                    </div>
+                    <div>
+                        最后初始化并且可以指定回调函数
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        cir.init(function (result) {
+            // result 选中的选区的相关信息
+        })
+    </code>
+</pre>
+                    </div>
+                    
+
+                    <div class="title" id="anchor_api">
+                        <a href="#anchor_api">参数</a>
+                    </div>
+                    <div>
+                        option 示例 (默认值)
+                    </div>
+                    <div class="code">
+<pre>
+    <code>
+        var option = {
+            type: 'pie', // pie 环形图|| gauge 计量图
+            title: {
+                show: true,
+                text: '总资产(元)',
+                textStyle: {
+                    fontSize: "20px",
+                    lineHeight: "30px",
+                    color: '#9f9f9f'
+                },
+                subtext: '360',
+                subtextStyle: {
+                    fontSize: "30px",
+                    lineHeight: "35px",
+                    color: '#e53344'
+                },
+                x: '50%', // title 位置
+                y: "50%",
+            },
+            tooltip: {
+                show: true,
+                fontStyle: "normal",    // 	规定字体样式 normal || italic || oblique
+                fontVariant: "normal",  // 规定字体变体 normal || small-caps
+                fontWeight: 'normal',   // 规定字体的粗细 normal || bold || bolder || lighter || 100 || 200 || 300 || 400 || 500 || 600 || 700 || 800 || 900
+                fontSize: "20px",   // 规定字号，以像素计
+                lineHeight: "30px", // 规定行高，以像素计
+                fontFamily: 'Arial',// 规定字体系列
+                color: 'white',     // 字体颜色
+                backgroundColor: '#00000099', // tip 背景
+                formatter: function (param) {   // 类似echarts 富文本编辑
+                    var str = "{a|" + param.name + "}" + "{c|" + param.percent + "}" + '\n' + "{b|" + param.value +
+                        "元}"
+                    return str
+                },
+                rich: {
+                    a: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'bold',
+                        fontSize: "20px",
+                        lineHeight: "30px",
+                        fontFamily: 'Arial',
+                        color: 'white',
+                    },
+                    c: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'normal',
+                        fontSize: "20px",
+                        lineHeight: "30px",
+                        fontFamily: 'Arial',
+                        color: 'white',
+                    },
+                    b: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'bold',
+                        fontSize: "30px",
+                        lineHeight: "35px",
+                        fontFamily: 'Arial',
+                        color: '#e53344',
+                    }
+                }
+            },
+            x: "50%",   // 图标位置
+            y: "50%",
+            radius: "30%",  // 半径
+            lineWidth: "5%", // 圆环宽度
+            // {{if type === gauge 计量图}}
+    
+            // max: 120, // 映射总值
+            // data: [{
+            //     name: "已用时长（分钟）",
+            //     value: 85, // 映射计量值
+            // }],
+    
+            // {{else if type === pie 环形图}}
+    
+            // data: [{
+            //     name: "账户余额(元)",
+            //     value: 110,
+            // }, {
+            //     name: "散标待回(元)",
+            //     value: 120,
+            // }, {
+            //     name: "在途资金(元)",
+            //     value: 130,
+            // }],
+            
+            // {{/if}}
+            label: {
+                show: true,
+                fontStyle: "normal",
+                fontVariant: "normal",
+                fontWeight: 'bold',
+                fontSize: "20px",
+                lineHeight: "30px",
+                fontFamily: 'Arial',
+                color: '#9f9f9f',
+                formatter: function (param) {
+                    var str = "{a|" + param.name + "}" + "{c|" + param.percent + "}" + '\n' + "{b|" + param.value +
+                        "元}"
+                    return str
+                },
+                rich: {
+                    a: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'bold',
+                        fontSize: "20px",
+                        lineHeight: "30px",
+                        fontFamily: 'Arial',
+    
+                    },
+                    b: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'bold',
+                        fontSize: "30px",
+                        lineHeight: "35px",
+                        fontFamily: 'Arial',
+                        color: '#e53344',
+                    },
+                    c: {
+                        fontStyle: "normal",
+                        fontVariant: "normal",
+                        fontWeight: 'bold',
+                        fontSize: "20px",
+                        lineHeight: "30px",
+                        fontFamily: 'Arial',
+    
+                    }
+                }
+            },
+            capType: "round", // 圆角 || butt 平角
+            selectedStyle: {  // 选中时的样式
+                color: "white", // 包边颜色
+                borderWidth: 10 // 包边宽度
+            },
+            color: ["#fe7c00", "#e83227", "#32a676"],
+            labelCoverTitle: true, // label 是否覆盖标题
+            backgroundArc: '#999' // 空圆环的颜色
+        }
+    </code>
+</pre>
+                    </div>                    
+                    <div class="title" id="anchor_demo">
+                        <a href="#anchor_demo">下载</a>
+                    </div>
+                    <div class="plug-download">
+                        <a href="https://github.com/yangchaojie456/donut-chart" class="relatedLink" target="_blank">download</a>
+                    </div>
+            </div>
+            <div class="plugin-navigator fl">
+                <ul>
+                    <li class="on">
+                        <a href="#anchor_statement">声明</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_compatibility">兼容性</a>
+                    </li>                     
+                    <li>
+                        <a href="#anchor_install">安装</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_usage">用法</a>
+                    </li>
+                    <li>
+                        <a href="#anchor_api">参数</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#anchor_demo">下载</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <%include ../layout/footer.html %>
+        <%include ../layout/umeng.html%>
+</body>
+
+<%include ../utils/plugin-app-js.html %>
+</html>

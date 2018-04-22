@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stage {
+            width: 500px;
+            height: 500px;
+            position: fixed;
+            top: 50%;
+            left: 10%;
+            margin-top: -250px;
+            perspective: 1500;
+            -webkit-perspective: 1500;
+        }
+
+        .box_3D {
+            width: 500px;
+            height: 500px;
+            transform-style: preserve-3d;
+            position: absolute;
+            background: none !important;
+            user-select: none;
+            transition: transform 4s cubic-bezier(.09, .35, .02, .98), -webkit-transform 4s cubic-bezier(.09, .35, .02, .98)
+        }
+
+        .box_3D>div {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            backface-visibility: visible;
+            background: url('/assets/images/logo_outline.svg');
+            transform-style: preserve-3d;
+
+        }
+
+        .box_3D>div>div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url('/assets/images/dots.gif') center no-repeat;
+            transform: translateZ(-150px);
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+
+        .box_3D .front {
+            transform: translateZ(250px);
+        }
+
+        .box_3D .back {
+            transform: rotateY(180deg) translateZ(250px);
+
+        }
+
+        .box_3D .right {
+            transform: rotateY(90deg) translateZ(250px);
+        }
+
+        .box_3D .left {
+            transform: rotateY(-90deg) translateZ(250px);
+        }
+
+        .box_3D .up {
+            transform: rotateX(90deg) translateZ(250px);
+        }
+
+        .box_3D .down {
+            transform: rotateX(-90deg) translateZ(250px);
+        }
+
+        .plugin-list {
+            width: 60%;
+            float: right;
+            text-align: right;
+            padding: 5% 15%;
+        }
+
+        .plugin-list ul li {
+            padding: 2%;
+
+        }
+
+        .plugin-list ul li a {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .plugin-list ul li a:hover {
+            color: transparent;
+            -webkit-text-stroke: 1px #333;
+        }
+        @media (max-width: 768px) {
+            .plugin-list {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%include ./layout/header.html %>
+
+        <div class="stage">
+            <div class="box_3D">
+                <div class="front">
+                    <div class="innerFront">1</div>
+                </div>
+                <div class="back">
+                    <div class="innerBack">2</div>
+                </div>
+                <div class="up">
+                    <div class="innerUp">3</div>
+                </div>
+                <div class="down">
+                    <div class="innerDown">4</div>
+                </div>
+                <div class="left">
+                    <div class="innerLeft">5</div>
+                </div>
+                <div class="right">
+                    <div class="innerRight">6</div>
+                </div>
+            </div>
+        </div>
+        <div class="plugin-list">
+            <ul>
+                <li>
+                    <a href="/plugin/turntable" class="hover-sound-js">抽奖转盘</a>
+                </li>
+                <li>
+                    <a href="/plugin/donut-chart" class="hover-sound-js">环形图(圆角)</a>
+                </li>
+            </ul>
+        </div>
+</body>
+<script>
+    var box_3D = document.querySelector('.box_3D')
+    var stage = document.querySelector('.stage')
+
+
+    var lastX, lastY, currentX, currentY, distanceX, distanceY;
+    lastX = stage.offsetLeft + 500
+    lastY = stage.offsetTop + 250
+    var firstFlag = true;
+
+    document.body.onmousemove = function (e) {
+        currentX = e.screenX
+        currentY = e.screenY
+        distanceX = currentX - lastX
+        distanceY = currentY - lastY
+        box_3D.style.transform = "rotateX(" + distanceY / 5 + "deg) rotateY(" + -distanceX / 10 + "deg)"
+    }
+
+    cubeResize()
+    
+    window.onresize=function(){
+        cubeResize()
+    }
+    function cubeResize() {
+        var availWidth = window.screen.availWidth
+        var innerWidth = window.innerWidth
+        stage.style.transform = "scale(" + (availWidth - (availWidth - innerWidth) / 2) / availWidth + ")"
+        if(innerWidth<500){
+            stage.style.left = 0
+        }else{
+            stage.style.left = window.innerWidth / window.screen.availWidth * 10 + "%"
+            
+        }
+        
+    }
+    // hover 声音
+        var hoverSound = document.createElement("audio")
+        hoverSound.setAttribute("src", "/assets/audio/hover.wav")
+        document.querySelector('.hover-sound-js').addEventListener('mouseover', function () {
+            hoverSound.play()
+        }) 
+</script>
+<%include ./layout/umeng.html%>
+</html>
