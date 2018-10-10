@@ -92,77 +92,73 @@ index.wxml
 
 <view class="movies">
   <view class='nav'>
-    <view  class='title_bar tc'>
+    <view class='title_bar tc'>
       <view class='w25'>
         <text class='title'>上海</text>
       </view>
-      <view  class='w25'>
-        <text style='opacity:{{current_hot?1:0.7}}' class='title'>正在热映</text>
+      <view class='w25'>
+        <text style='opacity:{{current_hot?1:0.7}}' class='title' bindtap='toHotMovies'>正在热映</text>
       </view>
-      <view  class='w25'>
-        <text style='opacity:{{current_hot?0.7:1}}' class='title'>即将上映</text>     
-      </view>      
-      <view  class='w25'>
+      <view class='w25'>
+        <text style='opacity:{{current_hot?0.7:1}}' class='title' bindtap='toWillMovies'>即将上映</text>
+      </view>
+      <view class='w25'>
         <icon class='search_icon' type='search' color='white' size='15'></icon>
       </view>
-      
+
     </view>
     <view class='nav_bar'>
       <movable-area class="nav_bar_area">
-        <movable-view class='nav_bar_view'
-          x="{{navX}}" y="{{navY}}" 
-          direction="horizontal"
-          animation="{{false}}"
-          disabled="{{true}}"
-        >
+        <movable-view class='nav_bar_view' x="{{navX}}" y="{{navY}}" direction="horizontal" animation="{{true}}" damping="{{200}}" friction="{{0.1}}" disabled="{{true}}">
         </movable-view>
       </movable-area>
-    </view>    
+    </view>
   </view>
   <view class='content'>
     <movable-area class="w100">
-      <movable-view class="w200"
-        x="{{x}}" y="{{y}}" 
-        direction="horizontal" inertia="{{true}}" 
-        damping="{{400}}" friction="{{0.1}}" 
-        bind:touchstart="movableStart" bindtouchmove="movableMove" 
-        bindtouchend="movableEnd"  bindchange="onChange"
-      >
-      <view class='w50' >
-          
-          <scroll-view class='content_scroll' scroll-y 
-          bindscrolltoupper="upper" 
-          bindscrolltolower="lower" 
-          bindscroll="scroll" 
-          >
-            <view id="green" class="scroll-view-item bc_green">1</view>
-            <view id="red"  class="scroll-view-item bc_red">2</view>
-            <view id="yellow" class="scroll-view-item bc_yellow">3</view>
-            <view id="blue" class="scroll-view-item bc_blue">4</view>
+      <movable-view class="w200" x="{{x}}" y="{{y}}" direction="horizontal" inertia="{{true}}" damping="{{100}}" friction="{{0.1}}" bind:touchstart="movableStart" bindtouchmove="movableMove" bindtouchend="movableEnd" bindchange="onChange">
+        <!-- 正在热映 -->
+        <view class='w50 hot_movies'>
+          <scroll-view id="hot_scroll" class='content_scroll' scroll-y lower-threshold="200" bindscrolltoupper="hot_movies_upper" bindscrolltolower="hot_movies_lower" bindscroll="hot_movies_scroll">
+          <!-- 列表项 -->
+          <view class='hot_movies_list'>
+            
+            <view class='hot_movies_item'  wx:for="{{hot_movies_list}}">
+              <navigator url="" hover-class="">
+                <image mode="aspectFit" lazy-load="{{true}}" src="{{item.img}}"></image>
+              </navigator>
+              <navigator class='hot_movies_item_content' id='{{index==0?"the-id":""}}'>
+                <view>
+                  <view class='title'><text>{{item.t}}</text></view>
+                  <view class='rate'>评分 <text>{{item.r}}</text></view>
+                  <view class='actor'>主演：{{item.actorStr}}</view>
+                  <view class='nearestShow'>今天{{item.NearestCinemaCount}}家影院放映{{item.NearestShowtimeCount}}场</view>
+                </view>
+                <navigator class='buy'>
+                  <text>购票</text>
+                </navigator>
+              </navigator>
+              
+            </view>
+            
+          </view>
           </scroll-view>
-      </view>
+        </view>
+        <!-- 即将上映 -->
+        <view class='w50'>
 
-      <view class='w50' >
-          
-          <scroll-view class='content_scroll' scroll-y 
-          style="height: 200px;" 
-          bindscrolltoupper="upper" 
-          bindscrolltolower="lower" 
-          bindscroll="scroll" 
-          scroll-into-view="{{toView}}" 
-          scroll-top="{{scrollTop}}"
-          >
+          <scroll-view class='content_scroll' scroll-y style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
             <view id="green" class="scroll-view-item bc_green">1</view>
-            <view id="red"  class="scroll-view-item bc_red">2</view>
+            <view id="red" class="scroll-view-item bc_red">2</view>
             <view id="yellow" class="scroll-view-item bc_yellow">3</view>
             <view id="blue" class="scroll-view-item bc_blue">4</view>
           </scroll-view>
-      </view>
+        </view>
       </movable-view>
     </movable-area>
   </view>
-  
-    
+
+
 </view>
 
 
@@ -226,15 +222,66 @@ index.wxss
   border-radius: 5rpx;
 }
 .content_scroll{
-  background: #f5f5f5;  
-  height: 93.3vh;
+  background: rgb(245, 245, 245);  
+  height: 93vh;
 }
 movable-view{
   display: flex;
   justify-content: flex-start;
 }
-.scroll-view-item{
-  height: 540rpx;
+.hot_movies_item{
+  height: 250rpx;
+  /* padding: 30rpx 0; */
+  padding-left: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  color:#666;
+  align-items: center;
+}
+.hot_movies_item image{
+  height: 200rpx;
+  width: 142rpx;
+  border-radius: 10rpx;
+}
+.hot_movies_item .title{
+  font-size: 34rpx;
+  font-weight: bold;
+  color:black;
+  line-height: 50rpx;
+}
+.hot_movies_item .rate{
+  line-height: 60rpx;
+}
+.hot_movies_item .rate text{
+  font-size: 32rpx;
+  color:#ecac3c;
+}
+.hot_movies_item .actor,.hot_movies_item .nearestShow{
+  line-height: 40rpx;
+  width:415rpx;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+
+}
+.hot_movies_item .hot_movies_item_content{
+  display: flex;
+  margin-left: 20rpx;
+  width: 512rpx;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #bbb;
+  height: 224rpx;
+  padding-top: 25rpx;
+}
+.hot_movies_item .hot_movies_item_content .buy{
+  background:#f34d41;
+  color: white;
+  width:100rpx;
+  height:60rpx;
+  text-align:center;
+  line-height:60rpx;
+  border-radius:30rpx;
+  margin-top: 75rpx;
 }
 
 index.js
@@ -248,6 +295,8 @@ var currentX= 0,
  windowWidth= wx.getSystemInfoSync().windowWidth,
  navBarWidth= wx.getSystemInfoSync().windowWidth * 33 / 100,
  moveDirection= 'left';
+
+var query = null
 Page({
   data: {
     x:0,
@@ -256,7 +305,8 @@ Page({
     navY:0,
     current_hot:true,
     toView: 'red',
-    scrollTop: 100
+    scrollTop: 100,
+    hot_movies_list:[]
   }, 
   movableStart(e){
     // console.log(e.touches[0].pageX)
@@ -344,5 +394,68 @@ Page({
       navX: (movableX / windowWidth) * navBarWidth,
       navY:0
     });    
-  }  
+  },
+  // 正在热映
+  hot_movies_scroll(e){
+    // console.log(e)
+    query.exec(function (res) {
+      console.log(res)
+    })
+  },
+  // 正在热映触顶
+  hot_movies_upper(e){
+    // console.log(e)
+  },
+  // 正在热映触底
+  hot_movies_lower(e){
+    // console.log(e)
+  },
+  init_hot_movies(){    
+    var that = this
+    wx.request({
+      url: 'https://api-m.mtime.cn/Showtime/LocationMovies.api', //仅为示例，并非真实的接口地址
+      data: {
+        locationId: 290
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data.ms)
+        
+        var array = []
+        array = res.data.ms.map(item=>{
+          return Object.assign(item, { 'actorStr': item.actors.split(' / ').slice(0, 3).join(',')})
+        })
+          
+        that.setData({
+          hot_movies_list: array
+        })
+        console.log(that.data.hot_movies_list)
+      }
+    })
+  },
+  toHotMovies(){
+    this.setData({
+      x: 0,
+      y: 0,
+      current_hot: true
+    });
+  },
+  toWillMovies(){
+    this.setData({
+      x: -windowWidth,
+      y: 0,
+      current_hot: false
+    });
+  },
+  onReady(){
+    console.log(this)
+    this.init_hot_movies()
+    query = wx.createSelectorQuery()
+    query.select('#the-id').boundingClientRect()
+    query.select('#hot_scroll').boundingClientRect()
+    
+    
+  }
 })
