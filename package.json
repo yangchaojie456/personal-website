@@ -14,7 +14,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "morgan": "^1.9.0",
+    "morgan": "^1.10.0",
     "node-mysql": "^0.4.2",
     "serve-favicon": "^2.4.5"
   }
