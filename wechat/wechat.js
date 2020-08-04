@@ -123,7 +123,14 @@ WeChat.prototype.handleMsg = function (req, res) {
                             case 'subscribe':
                                 //回复消息
 
-                                resolve(msg.txtMsg(fromUser, toUser, '欢迎关注 杨朝杰的求职 公众号\n回复1（查看技能）\n回复2（查看个人信息）\n回复3（查看工作经历）\n回复4（查看最近一年的项目）\n回复5（获取联系方式）'))
+                                resolve(msg.txtMsg(fromUser, toUser, `
+                                欢迎关注 杨朝杰的求职 公众号\n
+                                回复1（查看技能）\n
+                                回复2（查看个人信息）\n
+                                回复3（查看工作经历）\n
+                                回复4（查看最近一年的项目）\n
+                                回复5（获取联系方式）`
+                                ))
                                 break;
                             case 'click':
                                 var contentArr = [{
@@ -155,13 +162,23 @@ WeChat.prototype.handleMsg = function (req, res) {
                             case '1':
                                 var contentArr = [{
                                     Title: "个人技能（游戏版本）",
-                                    Description: "游戏版本",
+                                    Description: "游戏版本(由于微信改版，发送一条信息只能回复一条图文信息,发送1.2可以看到书面版本)",
                                     PicUrl: "http://www.yangchaojie.top/assets/images/wechat/1.jpg",
                                     Url: "http://www.yangchaojie.top/game-mobile.html"
                                 }, {
                                     Title: "个人技能（书面版本）",
                                     Description: "书面版本",
-                                    PicUrl: "https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=1413071116,1299738759&fm=85&s=95C6FC1684F16B82685E96F40300502F",
+                                    PicUrl: "http://www.yangchaojie.top/assets/images/wechat/1.jpg",
+                                    Url: "http://yangchaojie.top/assets/personal-information/info.html"
+                                }];
+                                //回复个人技能
+                                resolve(msg.graphicMsg(fromUser, toUser, contentArr));
+                                break;
+                            case '1.2':
+                                var contentArr = [{
+                                    Title: "个人技能（书面版本）",
+                                    Description: "书面版本",
+                                    PicUrl: "http://www.yangchaojie.top/assets/images/wechat/1.jpg",
                                     Url: "http://yangchaojie.top/assets/personal-information/info.html"
                                 }];
                                 //回复个人技能
@@ -196,7 +213,9 @@ WeChat.prototype.handleMsg = function (req, res) {
                             case '3':
                                 var contentArr = [{
                                     Title: "2018.5至今 平安城科 web前端工程师",
-                                    Description: "",
+                                    Description: "由于微信改版，发送一条信息只能回复一条图文信息",
+                                    PicUrl: "https://www.pauct.com/favicon.ico",
+                                    Url: "https://www.pauct.com/"
                                 }, {
                                     Title: "2017.5至2018.5 宝朔金融科技 web前端工程师",
                                     Description: "",
@@ -218,6 +237,11 @@ WeChat.prototype.handleMsg = function (req, res) {
                                 break;
                             case '4':
                                 var contentArr = [{
+                                    Title: "云商城",
+                                    Description: "由于微信改版，发送一条信息只能回复一条图文信息",
+                                    PicUrl: "https://www.pauct.com/favicon.ico",
+                                    Url: "https://b.pauct.com/"
+                                }, {
                                     Title: "宝象金融",
                                     Description: "",
                                     PicUrl: "https://bxwd-img.oss-cn-hangzhou.aliyuncs.com/upload/image/1707/bc704fd1-c022-4af4-8921-6a4dfb01d0fb.jpg",
