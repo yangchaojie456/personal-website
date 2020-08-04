@@ -1,0 +1,9 @@
+{
+    "token": "yangcan321",
+    "appID": "wx4d22418f2d3ded92",
+    "appScrect": "1080c790268322c0f19798bc1ebbc7fc",
+    "apiDomain": "https://api.weixin.qq.com/",
+    "apiURL": {
+        "accessTokenApi": "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s"
+    }
+}

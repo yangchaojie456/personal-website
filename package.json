@@ -4,18 +4,21 @@
   "description": "personal-website",
   "main": "index.js",
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "author": "yangCJ",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "morgan": "^1.10.0",
     "node-mysql": "^0.4.2",
-    "serve-favicon": "^2.4.5"
+    "request": "^2.85.0",
+    "serve-favicon": "^2.4.5",
+    "xml2js": "^0.4.19"
   }
 }

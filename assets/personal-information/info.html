@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            background: none;
+
+        }
+        .content{
+            padding:0 .666667rem /* 50/75 */
+        }
+        .content > h3{
+            font-size: .666667rem /* 50/75 */;
+            margin-bottom: .266667rem /* 20/75 */;
+        }
+        .content>div{
+            font-size: .4rem /* 30/75 */;
+            margin-bottom: .2rem /* 15/75 */;
+        }
+    </style>
+    <link rel="stylesheet" href="./jquery.fullPage.css">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="./jquery.fullPage.js"></script>
+</head>
+
+<body>
+
+    <div id="fullpage">
+        <div class="section">
+            <div class="content">
+
+                <h3>技能</h3>
+                <div>熟练使用 html/html5+css/css3 页面布局</div>
+                <div>熟练 JavaScript </div>
+                <div>熟练 jquery</div>
+                <div>熟练 canvas 及小游戏制作</div>
+                <div class="npm">圆角饼形图 npm i donut-chart </div>
+                <div>熟练 vue + vue-router + vuex + axios </div>
+                <div class="npm">扩展脚手架 npm i vue-cli-self</div>
+                <div>熟悉 nodeJS + expressJS + ejs</div>
+    
+                <h3>工具使用：</h3>
+                <div>布局工具： PC端使用DIV+CSS ，移动端使用手淘的flexible+flex布局，</div>
+                <div>样式工具：sass 预编译样式</div>
+                <div>构建工具：无模块化分割的使用gulp打包代码，有模块化思想的如vue 使用webpack打包</div>
+    
+                <h3>UI库 </h3>
+                <div>element-UI mint-UI，bootstrap，jqueryUI</div>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <canvas id="lineCanvas">
+
+            </canvas>
+        </div>
+    </div>
+
+    <script>
+        $('#fullpage').fullpage({
+            sectionsColor: ['orange', '#C0C0C0'],
+        });
+    </script>
+    <script>
+        (function (id) {
+            var c = document.getElementById(id),
+                width = window.innerWidth,
+                height = window.innerHeight,
+                ctx = c.getContext("2d");
+
+
+            // 获取屏幕大小
+
+            c.setAttribute('width', width + 'px')
+            c.setAttribute('height', height + 'px')
+
+            // 填写文字
+
+            ctx.font = "20px Georgia";
+
+            // 创建渐变
+            var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+            gradient.addColorStop("0", "magenta");
+            gradient.addColorStop("0.5", "blue");
+            gradient.addColorStop("1.0", "red");
+            // 用渐变填色
+            ctx.fillStyle = gradient;
+            var txt = '手指刮一刮了解更多内容'
+            ctx.fillText(txt, width / 2 - ctx.measureText(txt).width / 2, height / 2);
+
+
+
+
+
+
+
+            var lastX = 0,
+                lastY = 0,
+                nextX = 0,
+                nextY = 0;
+            var lastImageData = null;
+            lastImageData = lastMove(ctx, width, height)
+
+
+            // 标记第一次进入
+            var flag = true
+
+
+            document.body.ontouchend = function () {
+                lastX = 0, lastY = 0, nextX = 0, nextY = 0;
+                flag = true
+            }
+
+            var img = new Image();
+            img.src = './qrcode.jpg';
+            img.onload = function () {
+                c.ontouchmove = blackboard
+            }
+
+            function blackboard(e) {
+
+                ctx.beginPath()
+
+                if (flag) {
+                    lastX = e.touches[0].clientX
+                    lastY = e.touches[0].clientY
+                    flag = false
+                }
+                drawLast(ctx, lastImageData)
+                ctx.lineWidth = lineWidth;
+                ctx.lineJoin = "round"
+                ctx.lineCap = "round"
+
+                var pattern = ctx.createPattern(img, 'no-repeat');
+
+                ctx.strokeStyle = pattern;
+                ctx.moveTo(lastX, lastY);
+
+                nextX = e.touches[0].clientX
+                nextY = e.touches[0].clientY
+
+
+                ctx.lineTo(nextX, nextY);
+                lastX = nextX
+                lastY = nextY
+                ctx.stroke();
+                lastImageData = lastMove(ctx, width, height)
+                // console.log(lastImageData)
+
+                // 总共多少像素点
+                var totalPX = lastImageData.data.length / 4
+                // 计算重画的点
+                var countPX = 0
+                for (var i = 0; i < lastImageData.data.length; i += 4) {
+                    // 如果重新画过则canvas的像素点的透明度值不为0
+                    if (lastImageData.data[i + 3] > 0) {
+                        countPX++
+                    }
+                }
+
+                if (countPX / totalPX > 0.5) {
+                    // $('#lineCanvas').fadeOut(1000)
+                }
+            }
+
+            function lastMove(ctx, width, height) {
+                return ctx.getImageData(0, 0, width, height);
+            }
+
+            function drawLast(ctx, imgData) {
+                ctx.putImageData(imgData, 0, 0);
+            }
+
+
+            var lineWidth = 30;
+
+        })("lineCanvas")
+    </script>
+</body>
+
+</html>

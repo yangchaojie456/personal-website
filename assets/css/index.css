@@ -1,25 +1,27 @@
-body, html {
-    width: 100%;
-    height: 100%;
+body,
+html {
+    width   : 100%;
+    height  : 100%;
     overflow: hidden;
 }
 
 .hello {
-    position: absolute;
-    color: white;
-    left: 5%;
-    top: 5%;
-    font-size: 30px;
-    z-index: 12;
+    position      : absolute;
+    color         : white;
+    left          : 5%;
+    top           : 5%;
+    font-size     : 30px;
+    z-index       : 12;
     text-transform: uppercase;
-    filter: blur(0);
-    animation: hello 1s linear;
+    filter        : blur(0);
+    animation     : hello 1s linear;
 }
 
 @keyframes hello {
     from {
         filter: blur(10px)
     }
+
     to {
         filter: blur(0)
     }
@@ -27,76 +29,83 @@ body, html {
 
 canvas {
     background: black;
-    cursor: crosshair;
+    cursor    : crosshair;
 }
 
 .lineStage {
-    position: absolute;
-    left: 50%;
-    top: 0;
+    position : absolute;
+    left     : 50%;
+    top      : 0;
     transform: translate(-50%);
-    z-index: 10;
+    z-index  : 10;
 }
 
 @keyframes welcome {
     0% {
-        left: 5%;
+        left  : 5%;
         height: 0;
     }
+
     20% {
-        left: 5%;
+        left  : 5%;
         height: 50px;
     }
+
     100% {
-        left: 70%;
+        left  : 70%;
         height: 50px;
     }
 }
 
 .welcome {
-    color: white;
-    font-size: 40px;
-    position: fixed;
-    left: 70%;
-    z-index: 20;
-    bottom: 10%;
-    height: 50px;
-    overflow: hidden;
-    animation: welcome 10s linear;
-    cursor: crosshair;
+    color         : white;
+    font-size     : 40px;
+    position      : fixed;
+    left          : 70%;
+    z-index       : 20;
+    bottom        : 10%;
+    height        : 50px;
+    overflow      : hidden;
+    animation     : welcome 10s linear;
+    cursor        : crosshair;
     mix-blend-mode: exclusion;
+
+}
+
+.welcome a {
+    color: white;
 }
 
 .tool {
     position: fixed;
-    right: 20px;
-    top: 30px;
-    z-index: 11;
+    right   : 20px;
+    top     : 30px;
+    z-index : 11;
 }
 
 .tool ul {
-    padding: 0;
-    margin: 0;
-    width: 150px;
+    padding      : 0;
+    margin       : 0;
+    width        : 150px;
     /* background: pink; */
 }
 
 .tool ul li {
-    float: left;
-    list-style: none;
-    position: relative;
-    height: 50px;
+    float       : left;
+    list-style  : none;
+    position    : relative;
+    height      : 50px;
     margin-right: 10px;
 }
 
 .tool ul li span {
-    background: white;
+    background   : white;
     border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    box-shadow: 0 0 5px 0px #9e9e9e;
-    cursor: pointer;
+    display      : inline-block;
+    position     : absolute;
+    bottom       : 0;
+    box-shadow   : 0 0 5px 0px #9e9e9e;
+    cursor       : pointer;
 }
 
 .tool ul li.on span {
@@ -120,21 +129,22 @@ canvas {
 }
 
 .tool ul li:nth-child(1) span {
-    width: 30px;
+    width : 30px;
     height: 30px;
 }
 
 .tool ul li:nth-child(2) span {
-    width: 40px;
+    width : 40px;
     height: 40px;
 }
 
 .tool ul li:nth-child(3) span {
-    width: 50px;
+    width : 50px;
     height: 50px;
 }
 
-.clearfix:before, .clearfix:after {
+.clearfix:before,
+.clearfix:after {
     content: '';
     display: table;
 }
@@ -144,12 +154,12 @@ canvas {
 }
 
 .enter {
-    position: fixed;
-    right: 10%;
-    bottom: 10%;
-    z-index: 12;
+    position : fixed;
+    right    : 10%;
+    bottom   : 10%;
+    z-index  : 12;
     animation: index_arrow 2s linear 10s infinite;
-    cursor: pointer;
+    cursor   : pointer;
 }
 
 .enter a {
@@ -162,18 +172,19 @@ canvas {
 }
 
 .st0 {
-    fill: transparent;
-    stroke: white;
-    stroke-width: 3px;
-    stroke-dasharray: 5427.90283203125;
+    fill             : transparent;
+    stroke           : white;
+    stroke-width     : 3px;
+    stroke-dasharray : 5427.90283203125;
     stroke-dashoffset: 0;
-    animation: dash 5s linear;
+    animation        : dash 5s linear;
 }
 
 @keyframes dash {
     from {
         stroke-dashoffset: 5427.90283203125;
     }
+
     to {
         stroke-dashoffset: 0;
     }
@@ -183,6 +194,7 @@ canvas {
     from {
         right: 10%;
     }
+
     to {
         right: 8%;
     }

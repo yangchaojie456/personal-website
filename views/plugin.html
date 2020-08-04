@@ -96,6 +96,7 @@
             color: transparent;
             -webkit-text-stroke: 1px #333;
         }
+
         @media (max-width: 768px) {
             .plugin-list {
                 width: 100%;
@@ -107,38 +108,41 @@
 <body>
     <%include ./layout/header.html %>
 
-        <div class="stage">
-            <div class="box_3D">
-                <div class="front">
-                    <div class="innerFront">1</div>
-                </div>
-                <div class="back">
-                    <div class="innerBack">2</div>
-                </div>
-                <div class="up">
-                    <div class="innerUp">3</div>
-                </div>
-                <div class="down">
-                    <div class="innerDown">4</div>
-                </div>
-                <div class="left">
-                    <div class="innerLeft">5</div>
-                </div>
-                <div class="right">
-                    <div class="innerRight">6</div>
-                </div>
+    <div class="stage">
+        <div class="box_3D">
+            <div class="front">
+                <div class="innerFront">1</div>
+            </div>
+            <div class="back">
+                <div class="innerBack">2</div>
+            </div>
+            <div class="up">
+                <div class="innerUp">3</div>
+            </div>
+            <div class="down">
+                <div class="innerDown">4</div>
+            </div>
+            <div class="left">
+                <div class="innerLeft">5</div>
+            </div>
+            <div class="right">
+                <div class="innerRight">6</div>
             </div>
         </div>
-        <div class="plugin-list">
-            <ul>
-                <li>
-                    <a href="/plugin/turntable" class="hover-sound-js">抽奖转盘</a>
-                </li>
-                <li>
-                    <a href="/plugin/donut-chart" class="hover-sound-js">环形图(圆角)</a>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <div class="plugin-list">
+        <ul>
+            <li>
+                <a href="/plugin/dash-player" class="hover-sound-js">高仿优酷播放器</a>
+            </li>
+            <li>
+                <a href="/plugin/turntable" class="hover-sound-js">抽奖转盘</a>
+            </li>
+            <li>
+                <a href="/plugin/donut-chart" class="hover-sound-js">环形图(圆角)</a>
+            </li>
+        </ul>
+    </div>
 </body>
 <script>
     var box_3D = document.querySelector('.box_3D')
@@ -159,28 +163,34 @@
     }
 
     cubeResize()
-    
-    window.onresize=function(){
+
+    window.onresize = function () {
         cubeResize()
     }
     function cubeResize() {
         var availWidth = window.screen.availWidth
         var innerWidth = window.innerWidth
         stage.style.transform = "scale(" + (availWidth - (availWidth - innerWidth) / 2) / availWidth + ")"
-        if(innerWidth<500){
+        if (innerWidth < 500) {
             stage.style.left = 0
-        }else{
+        } else {
             stage.style.left = window.innerWidth / window.screen.availWidth * 10 + "%"
-            
+
         }
-        
+
     }
     // hover 声音
-        var hoverSound = document.createElement("audio")
-        hoverSound.setAttribute("src", "/assets/audio/hover.wav")
-        document.querySelector('.hover-sound-js').addEventListener('mouseover', function () {
+    var hoverSound = document.createElement("audio")
+    hoverSound.setAttribute("src", "/assets/audio/hover.wav")
+    var pluginBtns = document.querySelectorAll('.hover-sound-js')
+    for (let index = 0; index < pluginBtns.length; index++) {
+        const element = pluginBtns[index];
+        element.addEventListener('mouseover', function () {
             hoverSound.play()
-        }) 
+        })
+    }
+
 </script>
 <%include ./layout/umeng.html%>
+
 </html>
