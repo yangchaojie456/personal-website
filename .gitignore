@@ -6,7 +6,6 @@ yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
 selenium-debug.log
-access.log
 # Editor directories and files
 .idea
 .vscode
@@ -14,3 +13,6 @@ access.log
 *.ntvs*
 *.njsproj
 *.sln
+*access.log*
+
+log

@@ -20,7 +20,7 @@ app.set('view engine', 'html');
 app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico')));
 
 //创建一个写文件流，并且保存在当前文件夹的access.log文件中
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flag: 'a' });
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'log/access.log'), { flag: 'a' });
 //设置开启文件流，并且指明文件流的对象
 app.use(logger('combined', { stream: accessLogStream }));
 
