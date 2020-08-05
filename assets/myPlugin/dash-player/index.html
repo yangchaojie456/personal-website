@@ -6,7 +6,7 @@
     <title>youku Sample</title>
     <meta name="description" content="">
     <script src="http://unpkg.com/dash-player/dist/player.js"></script>
-    <link rel="stylesheet" href="/assets/myPlugin/dash-player/dash-video.css">
+    <link rel="stylesheet" href="/assets/myPlugin/dash-player/index.css">
     <style>
         body {
             padding: 0;
@@ -49,85 +49,27 @@
                             <div class="progress-container">
                                 <div id="progress-input-range" class="input-range-container progress-input-range"
                                     data-val="0" style="display: block;">
-                                    <!-- <div id="thumb-play" class="input-range-thumb js-thumb" style="left: 0%;"></div> -->
                                 </div>
                                 <div id="progress-loaded" class="progress-loaded" style="width: 0%;"></div>
                                 <div id="progress-played" class="progress-played" style="width: 0%;"></div>
                             </div>
                         </div>
                     </div>
-
                     <div class="h5-control-wrap">
-
                         <div class="control-left-grid">
-
                             <div class="control-icon control-icon-play-pause">
                                 <span id="video-play" class="iconfont icon-play"></span>
                                 <span id="video-pause" class="iconfont icon-pause"></span>
-                            </div>
-
-
-                            <div id="player-next" class="control-icon control-next-video"
-                                style="display: inline-block;">
-                                <span class="icon iconfont icon-next"></span>
-                                <div class="next-content">
-                                    <img class="next-pic"
-                                        src="https://vthumb.ykimg.com/054101015F133957AD98E7A14527C58E?x-oss-process=image/resize,w_160/interlace,1/quality,Q_100/sharpen,100"
-                                        style="display: block;">
-                                    <div class="next-info">
-                                        <span>下一集</span>
-                                        <p>范丞丞白色西装也太帅了，和江疏影在线尬舞</p>
-                                    </div>
-                                </div>
                             </div>
                             <div class="control-time" style="display: none;">
                                 <span id="current-time" class="control-time-current"></span>
                                 <span class="control-time-split"> / </span>
                                 <span id="duration-time" class="control-time-duration"></span>
                             </div>
-
                         </div>
-
                         <div class="control-right-grid">
-                            <div class="control-icon control-quality-icon disabled" style="display: none;">
-                                <span class="control-quality-btn js-language-text" data-eventlog="xCl">国语</span>
-                                <div class="quality-dashboard">
-                                    <div data-val="default"
-                                        class="settings-item language-item active setting-item-disable"
-                                        data-eventlog="xsl">default</div>
-                                </div>
-                            </div>
-
-
-                            <div class="control-icon control-danmaku-icon active" style="display:none">
-                                <svg class="svg-icon" width="30px" height="20px" viewBox="0 0 30 22">
-                                    <g>
-                                        <g transform="translate(-913 -1195)">
-                                            <g transform="translate(217 645)">
-                                                <g transform="translate(0 483)">
-                                                    <g transform="translate(696 67)">
-                                                        <rect width="30" height="22" rx="11" fill="#5C5C5C"></rect>
-                                                        <circle cx="19" cy="11" r="11" fill="#fff"></circle>
-                                                        <text fill="#444444" font-family="PingFangSC-Light, PingFang SC"
-                                                            font-size="12" font-weight="300" line-spacing="12">
-                                                            <tspan x="15" y="16">弹</tspan>
-                                                        </text>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-
-                            </div>
-
-                            <div class="control-icon control-series control-quality-icon" id="controlSeries"
-                                style="display: none;">
-                                <span class="control-rate-btn" data-eventlog="xCr">选集</span>
-                            </div>
                             <div id="control-rate" class="control-icon control-quality-icon">
-                                <span class="control-rate-btn" data-eventlog="xCr">倍速</span>
-                                <span class="control-rate-note" style="display: none;">播放速度不满意？试试这里</span>
+                                <span class="control-rate-btn" data-eventlog="xCr">RATE</span>
                                 <div class="rate-dashboard">
                                     <div data-val="2.0" class="settings-item rate-item" data-eventlog="xsr">
                                         2.0X
@@ -146,26 +88,22 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div id="control-quality" class="control-icon control-quality-icon ">
-                                <span class="control-quality-btn js-quality-text" data-eventlog="xCq">智能</span>
-                                <span class="control-quality-note" style="display: none;">播放速度不满意？试试这里</span>
+                                <span class="control-quality-btn js-quality-text" data-eventlog="xCq">AUTO</span>
                                 <div class="quality-dashboard quality-dashboard-new largest" data-spm="qingxidu">
-                                    <div data-val="2" data-bit="2000" data-label="超清"
-                                        class="settings-item quality-item">超清
+                                    <div data-val="2" data-bit="2000" data-label="HD"
+                                        class="settings-item quality-item">HD
                                         720P</div>
-                                    <div data-val="1" data-bit="700" data-label="高清" class="settings-item quality-item">
-                                        高清
+                                    <div data-val="1" data-bit="700" data-label="MD" class="settings-item quality-item">
+                                        MD
                                         480P</div>
-                                    <div data-val="0" data-bit="400" data-label="流畅" class="settings-item quality-item">
-                                        流畅
+                                    <div data-val="0" data-bit="400" data-label="LD" class="settings-item quality-item">
+                                        LD
                                         240P</div>
-                                    <div data-val="-1" data-label="智能" class="settings-item quality-item qauto active"
-                                        data-eventlog="xsq">智能<span class="current-level">(高清)</span></div>
+                                    <div data-val="-1" data-label="AUTO" class="settings-item quality-item qauto active"
+                                        data-eventlog="xsq">AUTO<span class="current-level">(AUTO)</span></div>
                                 </div>
                             </div>
-
-
                             <div id="control-volume" class="control-icon control-volume-icon">
                                 <span class="iconfont icon-volume"></span>
                                 <span class="iconfont icon-mute"></span>
@@ -182,60 +120,40 @@
                                 </div>
                                 <div class="volume-tip" id="volume-tip" style="visibility: visible;">50%</div>
                             </div>
-
-
-
-
                             <div id="control-settings" class="control-icon control-quality-icon control-settings-icon">
                                 <span class="icon iconfont icon-setting"></span>
                                 <div class="quality-dashboard settings-dashboard">
                                     <div data-val="loop" id="control-loop" class="settings-item js-loop">
-                                        循环播放
+                                        LOOP
                                         <span class="icon iconfont switch-close"></span>
                                         <span class="icon iconfont switch-open"></span>
                                     </div>
-                                    <!-- <div data-val="skip" class="settings-item js-skip active">
-                                        跳过片头片尾
-                                        <span class="icon iconfont switch-close"></span>
-                                        <span class="icon iconfont switch-open"></span>
-                                    </div>
-                                    <div data-val="continuePlay" class="settings-item js-continue-play active">
-                                        连续播放
-                                        <span class="icon iconfont switch-close"></span>
-                                        <span class="icon iconfont switch-open"></span>
-                                    </div> -->
                                 </div>
                             </div>
-                            <div data-tip="画中画" class="control-icon control-quality-icon control-settings-icon">
+                            <div data-tip="p_in_p" class="control-icon control-quality-icon control-settings-icon">
                                 <span id="picture-in-picture" class="icon iconfont icon-picture"
                                     data-eventlog="xenpip"></span>
                             </div>
-                            <div id="control-screen" data-tip="页中屏" class="control-icon  control-webfullscreen-icon">
+                            <div id="control-screen" data-tip="mini" class="control-icon  control-webfullscreen-icon">
                                 <span id="open-webfullscreen" class="icon iconfont icon-webfullscreen"
                                     data-eventlog="xenwfs"></span>
                                 <span id="close-webfullscreen" class="icon iconfont icon-exit-webfullscreen"
                                     data-eventlog="ewfs"></span>
                             </div>
-                            <div id="open-fullscreen" data-tip="全屏" class="control-icon control-fullscreen-icon">
+                            <div id="open-fullscreen" data-tip="full_screen"
+                                class="control-icon control-fullscreen-icon">
                                 <span class="iconfont icon-fullscreen" data-eventlog="xenfs"></span>
                             </div>
 
-                            <div id="close-fullscreen" data-tip="退出全屏" class="control-icon control-halfscreen-icon"
+                            <div id="close-fullscreen" data-tip="exit" class="control-icon control-halfscreen-icon"
                                 style="display:none;">
                                 <span class="iconfont icon-exit-fullscreen" data-eventlog="exfs"></span>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
                 <div id="yk-info-menu" class="yk-info-menu">
-                    <!-- <div class="yk-info-menuitem" data-val="menu-videoinfo">视频信息</div>
-                    <div class="yk-info-menuitem" data-val="menu-copyurl">复制视频网址</div>
-                    <div class="yk-info-menuitem" data-val="menu-copycurrenturl">复制当前时间视频网址</div>
-                    <div class="yk-info-menuitem" data-val="menu-copy-debuginfo">复制调试信息</div>
-                    <div class="yk-info-menuitem" data-val="menu-showdetail" style="display:none">详细统计信息</div> -->
-                    <div class="yk-info-menuitem yk-version-info" data-val="menu-version">版本号: 0.2.9</div>
+                    <div class="yk-info-menuitem yk-version-info" data-val="menu-version">version: 0.1.0</div>
                 </div>
                 <div id="loading" class="preloading-layer" style="display: none;">
                     <div class="preloading-container" style="width:148px; margin-left: -74px;height: 90px;">
@@ -249,12 +167,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <script>
         function startVideo() {
-
             var player = new MediaPlayer({
                 src: "http://yangchaojie.top/allow_origin/mpd/index.mpd",
                 rootEle: '#CJ-player-0',
@@ -267,43 +183,42 @@
                 autoQuality: true,
             })
             window.player = player
-
             player.once('canPlay', function () {
-
                 // loading 
                 player.listener('playbackWaiting', function () {
                     document.getElementById('loading').style.display = 'block'
-                    console.log('等待数据加载')
+                    console.log('wait loading')
                     player.once('playbackPlaying', function () {
                         document.getElementById('loading').style.display = 'none'
-                        console.log('数据加载完成')
+                        console.log('load finish')
                     })
                 })
-                // 等视频加载完成后 ，不如有些属性获取不到 例如 ： 视频长度
+                // 等视频加载完成后 ，不然有些属性获取不到 例如 ： 视频长度
+                // After the video load is completed, or some properties can not be obtained, such as: video length
                 var rootElement = player.rootEle
-                // --------------开始/暂停 start------------
-                // 开始btn
+                // play btn
                 var startBtn = rootElement.querySelector('#video-play');
-                // 暂停btn
+                // pause btn
                 var pausetBtn = rootElement.querySelector('#video-pause');
                 var controlElement = rootElement.querySelector('.control-icon');
                 function toPlay() {
                     controlElement.classList.add('control-pause-icon')
                     controlElement.classList.remove('control-play-icon')
-                    controlElement.dataset.tip = "播放"
+                    controlElement.dataset.tip = "play"
                     player.play(function () {
-                        console.log('播放')
+                        console.log('playing')
                     })
                 }
                 function toPause() {
                     controlElement.classList.add('control-play-icon')
                     controlElement.classList.remove('control-pause-icon')
-                    controlElement.dataset.tip = "暂停"
+                    controlElement.dataset.tip = "pause"
                     player.pause(function () {
-                        console.log('暂停')
+                        console.log('pause')
                     })
                 }
                 // 播放结束时 切换到暂停按钮
+                // Switch to the pause button when the play is over
                 player.listener('playbackEnded', function () {
                     toPause()
                 })
@@ -318,63 +233,37 @@
                 } else {
                     toPause()
                 }
-                // --------------开始/暂停 end------------
-
-                // --------------播放下一个 start------------
-                rootElement.querySelector('#player-next').onclick = function () {
-                    // player.reset()
-                    // player = new MediaPlayer({
-                    //     src: "http://127.0.0.1:8080/mpd/index.mpd",
-                    //     rootEle: '#CJ-player-0',
-                    //     videoEle: '#CJ-video',
-                    //     autoplay: true,
-                    //     controls: false,
-                    //     loop: true,
-                    //     maxBitrate: 700, // Kbps
-                    //     initialBitrate: 700,
-                    //     autoQuality: true,
-                    // })
-                    // return false
-                    window.open('https://v.youku.com/v_show/id_XNDcyMDY2OTE2NA==.html?spm=a2hbt.13141534.2_2.d1_2&scm=20140719.apircmd.46137.video_XNDcyMDY2OTE2NA%3D%3D');
-                }
-                // --------------播放下一个 end------------
-
-                // --------------计算时间进度 start------------
 
                 rootElement.querySelector('.control-time').style.display = 'inline-block'
+
                 var duration = player.duration
-
-
+                // --------------计算时间进度------------
+                // --------------play progress------------
                 var cancelEvent_1 = player.listener("playbackTimeUpdated", function () {
-
                     rootElement.querySelector('#current-time').innerHTML = player.formatTime.current
                     rootElement.querySelector('#duration-time').innerHTML = player.formatTime.duration
-
                     var currentTime = player.currentTime
-                    // 进度条                    
+                    // 
                     rootElement.querySelector('#progress-played').style.width = currentTime / duration * 100 + "%";
                     rootElement.querySelector('#thumb-play') && (rootElement.querySelector('#thumb-play').style.left = currentTime / duration * 100 + "%")
                 })
                 // cancelEvent_1()
-                // --------------计算时间进度 end------------
 
-                // --------------已加载进度 start------------
+                // --------------已加载进度------------
+                // --------------Loaded progress------------
                 var cancelEvent_2 = player.listener("fragmentLoadingCompleted", function (event) {
                     loadingDuration = event.request.startTime
                     rootElement.querySelector('#progress-loaded').style.width = loadingDuration / duration * 100 + "%"
                 });
-                // --------------已加载进度 end------------
 
-
-                // --------------选择播放进度 start------------
+                // Slide the screen left or right to adjust the play progress
                 rootElement.querySelector('#progress-input-range').onclick = function (e) {
                     var thumbProcess = e.offsetX / e.target.offsetWidth * duration
                     player.setSeek(thumbProcess)
                 }
-                // --------------选择播放进度 end------------
 
-
-                // --------------选择倍速 start------------
+                // --------------选择倍速------------
+                // --------------playback speed control------------
                 rootElement.querySelector('#control-rate').onmouseover = function () {
                     this.classList.add('dashboard-show')
                 }
@@ -393,10 +282,9 @@
                         player.setPlaybackRate(this.dataset.val)
                     }
                 }
-                // --------------选择倍速 end------------
 
-
-                // --------------选择画质 start------------
+                // --------------选择画质------------
+                // --------------Quality selection------------
                 rootElement.querySelector('#control-quality').onmouseover = function () {
                     this.classList.add('dashboard-show')
                 }
@@ -404,15 +292,14 @@
                     this.classList.remove('dashboard-show')
                 }
                 // 监听画质切换
+                // Listen for quality switching
                 player.listener('qualityChangeRendered', function (e) {
                     // player.getQualityList() // 根据画质自己命名
-                    var obj = ['流畅', '高清', '超清']
+                    var obj = ['流畅-LD', '高清-MD', '超清-HD']
                     if (e.mediaType == "video") {
-                        console.log('画质已经智能切换到:' + obj[e.newQuality])
+                        console.log('quality to:' + obj[e.newQuality])
 
                         rootElement.querySelector('.current-level').innerHTML = '(' + obj[e.newQuality] + ')'
-
-
 
                         var sibling = rootElement.querySelector('.quality-dashboard.quality-dashboard-new ').children
                         for (var i = 0, l = sibling.length; i < l; i++) {
@@ -424,15 +311,14 @@
                     }
                 })
 
-
                 var qualitySettingsItemElement = rootElement.querySelectorAll('#control-quality .settings-item')
                 for (var index = 0, len = qualitySettingsItemElement.length; index < len; index++) {
                     qualitySettingsItemElement[index].onclick = function () {
 
                         // 智能选择画质
+                        // AutoQuality
                         if (this.dataset.val == -1) {
                             player.setAutoQuality()
-
                             var sibling = this.parentElement.children
                             for (var i = 0, l = sibling.length; i < l; i++) {
                                 sibling[i].classList.remove('active')
@@ -440,8 +326,9 @@
                             this.classList.add('active')
                         } else {
                             // 因为设置了最大bit 所以 选择画质时可以有限制
+                            // If you set the maximum bit, you can limit the quality of your image
                             if (this.dataset.bit > player.getMaxQuality('video').bitrate / 1000) {
-                                var result = confirm('你还没有超清画质的权限，是否现在获取')
+                                var result = confirm('你还没有超清画质的权限，是否现在获取\nYou do not have the permission of super clear picture quality, do you want to get it now')
                                 if (result) {
                                     player.updateSettings({
                                         streaming: {
@@ -455,7 +342,7 @@
                                         }
                                     })
                                     player.setQuality('video', Number(this.dataset.val), function () {
-                                        console.log('画质切换完成')
+                                        console.log('画质切换完成\nThe image quality switch is complete')
                                     }, 'immediately')
 
                                     var sibling = this.parentElement.children
@@ -471,19 +358,15 @@
                                 }
                                 this.classList.add('active')
                                 player.setQuality('video', Number(this.dataset.val), function () {
-                                    console.log('画质切换完成')
+                                    console.log('画质切换完成\nThe image quality switch is complete')
                                 }, 'immediately')
                             }
-
                         }
                         rootElement.querySelector('#control-quality .control-quality-btn').innerHTML = this.dataset.label
                     }
                 }
 
-                // --------------选择画质 end------------
-
-                // --------------设置音量 start------------
-
+                // --------------Set the volume------------
                 rootElement.querySelector('#control-volume').onmouseover = function () {
                     this.classList.add('slide-show')
                 }
@@ -525,19 +408,13 @@
                         }
                     }
                 }
-
-
-
                 document.body.onmouseup = function (e) {
                     setVolumeFlag = false
                     current_volume = temp_volume
-
                     document.body.onmousemove = null
                 }
 
-                // --------------设置音量 end------------
-
-                // --------------设置中心 start----------
+                // --------------info----------
                 rootElement.querySelector('#control-settings').onmouseover = function () {
                     this.classList.add('dashboard-show')
                 }
@@ -545,41 +422,36 @@
                     this.classList.remove('dashboard-show')
                 }
                 // 设置 循环播放
+                // set loop
                 if (player.loop) {
                     rootElement.querySelector('#control-loop').classList.add('active')
                 }
                 rootElement.querySelector('#control-loop').onclick = function () {
                     this.classList.toggle('active')
-                    // console.log(this.classList)
                     player.setLoop(this.classList.contains('active'))
                 }
 
-                // --------------设置中心 end------------
-
-
-                // --------------画中画模式 start------------
+                // --------------画中画模式------------
+                // --------------picture-in-picture model------------
                 rootElement.querySelector('#picture-in-picture').onclick = function () {
                     player.switchPictureInPicture()
                 }
-                // --------------画中画模式 end------------
 
-
-                // --------------控制台 控制显隐 start------------
-                // 控制台 显示 隐藏
+                // --------------控制台 控制显隐------------
+                // --------------Show /Hidden control------------                
                 rootElement.onmousemove = function () {
                     rootElement.querySelector('#h5player-control').style.display = 'block'
                 }
-                // 3秒后隐藏
+                // hidden after 3s
                 // setTimeout(() => {
                 //     rootElement.querySelector('#h5player-control').style.display = 'none'
                 // }, 3000);
                 rootElement.onmouseleave = function () {
                     rootElement.querySelector('#h5player-control').style.display = 'none'
                 }
-                // --------------控制台 控制显隐 end------------
-
 
                 // --------------小屏播放 start------------
+                // -------------- mini mode------------
                 rootElement.querySelector('#open-webfullscreen').onclick = function () {
                     player.switchMiniMode({ width: 600 }, { bottom: '0px', right: "20%" })
 
@@ -592,30 +464,23 @@
                     rootElement.querySelector('#control-screen').classList.add('control-webfullscreen-icon')
                     rootElement.querySelector('#control-screen').classList.remove('exit-webfullscreen-icon')
                 }
-                // --------------小屏播放 end--------------
 
-
-                // --------------全屏模式 start--------------
+                // --------------全屏模式--------------
+                // --------------full screen mode--------------
                 rootElement.querySelector('#open-fullscreen').onclick = function () {
                     rootElement.querySelector('#close-fullscreen').style.display = 'inline-block'
                     rootElement.querySelector('#open-fullscreen').style.display = 'none'
                     player.switchFullScreen()
-
-
                 }
                 rootElement.querySelector('#close-fullscreen').onclick = function () {
                     rootElement.querySelector('#open-fullscreen').style.display = 'inline-block'
                     rootElement.querySelector('#close-fullscreen').style.display = 'none'
                     document.exitFullscreen()
-
                 }
-
-                // --------------全屏模式 end--------------
             })
-
-
-
         }
+
+        // Custom right-click
         document.body.oncontextmenu = function (e) {
             var ev = window.event || e;
             if (document.all) {
