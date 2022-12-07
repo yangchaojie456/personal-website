@@ -9,11 +9,11 @@
   "author": "yangCJ",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.3",
     "crypto": "^1.0.1",
     "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "express": "^4.18.2",
     "express-session": "^1.15.6",
     "morgan": "^1.10.0",
     "node-mysql": "^0.4.2",
